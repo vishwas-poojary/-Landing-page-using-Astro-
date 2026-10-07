@@ -1,0 +1,44 @@
+---
+import { howItWorksData } from "@/lib/site-content";
+---
+
+<section class="py-20 lg:py-32 bg-neutral-950 border-b border-white/10 relative">
+  <div class="sqsp-container">
+    <div class="max-w-3xl mb-16 reveal-on-scroll">
+      <span class="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-3 block">
+        Simple 4-Step Process
+      </span>
+      <h2 class="sqsp-headline-lg font-medium text-white mb-4">
+        {howItWorksData.title}
+      </h2>
+    </div>
+
+    <!-- Steps Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {howItWorksData.steps.map((step) => (
+        <div class="group bg-black/60 border border-white/10 hover:border-white/30 rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 reveal-on-scroll">
+          <div>
+            <div class="text-4xl font-light text-neutral-600 group-hover:text-white font-mono transition-colors mb-6 pb-4 border-b border-white/10">
+              {step.number}
+            </div>
+
+            <h3 class="text-xl font-medium text-white mb-3">
+              {step.title}
+            </h3>
+
+            <p class="text-sm text-neutral-400 leading-relaxed">
+              {step.description}
+            </p>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-white/5">
+            <span class="text-xs text-neutral-500 font-medium group-hover:text-white transition-colors flex items-center gap-1.5">
+              <span>Step details</span>
+              <span>→</span>
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

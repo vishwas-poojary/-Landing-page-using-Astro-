@@ -1,0 +1,186 @@
+---
+import { aiSectionData } from "@/lib/site-content";
+---
+
+<section id="ai-builder" class="py-20 lg:py-32 bg-black border-b border-white/10 relative overflow-hidden">
+  <div class="sqsp-container">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <!-- Left: Interactive AI Assistant Simulator with Scroll Reveal -->
+      <div class="lg:col-span-6 space-y-8 reveal-on-scroll">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-neutral-300">
+          <div class="flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse delay-75"></span>
+            <span class="w-1 h-1 rounded-full bg-emerald-400 animate-pulse delay-150"></span>
+          </div>
+          <span class="font-semibold text-white">{aiSectionData.badge}</span>
+          <span class="text-neutral-500">•</span>
+          <span class="text-neutral-400">{aiSectionData.timeAward}</span>
+        </div>
+
+        <h2 class="sqsp-headline-lg font-medium text-white leading-tight">
+          {aiSectionData.title}
+        </h2>
+
+        <p class="sqsp-body-lg text-neutral-400 leading-relaxed">
+          {aiSectionData.description}
+        </p>
+
+        <!-- Interactive AI Prompt Simulator -->
+        <div class="bg-neutral-950 border border-white/15 rounded-2xl p-6 space-y-4 shadow-xl">
+          <div class="flex items-center justify-between border-b border-white/10 pb-3">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+              <span class="text-xs font-semibold text-neutral-300 uppercase tracking-wider">AI Prompt Generator</span>
+            </div>
+            <span class="text-[11px] text-neutral-500">Click a preset below</span>
+          </div>
+
+          <!-- Presets Buttons -->
+          <div class="flex flex-wrap gap-2">
+            <button
+              type="button"
+              data-ai-preset="ceramics"
+              class="ai-preset-btn px-3 py-1.5 rounded-full text-xs font-medium bg-white text-black transition-all"
+            >
+              Ceramic Studio
+            </button>
+            <button
+              type="button"
+              data-ai-preset="bakery"
+              class="ai-preset-btn px-3 py-1.5 rounded-full text-xs font-medium bg-white/5 text-neutral-400 hover:text-white transition-all"
+            >
+              Artisan Bakery
+            </button>
+            <button
+              type="button"
+              data-ai-preset="architect"
+              class="ai-preset-btn px-3 py-1.5 rounded-full text-xs font-medium bg-white/5 text-neutral-400 hover:text-white transition-all"
+            >
+              Architecture Firm
+            </button>
+          </div>
+
+          <!-- Dynamic Output Card -->
+          <div id="ai-output-box" class="bg-black/60 border border-white/10 rounded-xl p-4 text-xs space-y-3 transition-all duration-300">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-neutral-400 block text-[10px] uppercase font-semibold">Generated Site Identity</span>
+                <span id="ai-site-title" class="text-sm font-semibold text-white">Terra Clay & Glaze</span>
+              </div>
+              <span id="ai-site-badge" class="px-2 py-0.5 rounded text-[10px] font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                Earth & Craft
+              </span>
+            </div>
+
+            <p id="ai-site-description" class="text-neutral-400 leading-relaxed">
+              "Warm natural clay textures, handcrafted ceramic vases, weekend pottery workshop booking via Acuity Scheduling, and secure checkout."
+            </p>
+
+            <div class="flex items-center gap-3 pt-1 border-t border-white/5">
+              <span class="text-neutral-500 text-[10px]">Color Palette:</span>
+              <div id="ai-palette-dots" class="flex items-center gap-1.5">
+                <span class="w-3.5 h-3.5 rounded-full bg-[#8C5E45]"></span>
+                <span class="w-3.5 h-3.5 rounded-full bg-[#D4B996]"></span>
+                <span class="w-3.5 h-3.5 rounded-full bg-[#2C221E]"></span>
+                <span class="w-3.5 h-3.5 rounded-full bg-[#FAF7F2]"></span>
+              </div>
+            </div>
+          </div>
+
+          <a href="#templates" class="btn-sqsp-primary w-full text-center text-xs !py-3">
+            Build this with Blueprint AI →
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Blueprint AI Video Showcase -->
+      <div class="lg:col-span-6">
+        <div class="relative rounded-3xl overflow-hidden aspect-[4/3] sm:aspect-[16/10] bg-neutral-900 border border-white/15 shadow-[0_20px_70px_rgba(0,0,0,0.8)] group">
+          <video
+            class="w-full h-full object-cover"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            poster={aiSectionData.poster}
+          >
+            <source src={aiSectionData.video} type="video/mp4" />
+          </video>
+
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+
+          <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between text-xs text-neutral-300">
+            <span class="bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 font-medium">
+              Squarespace Blueprint AI Builder
+            </span>
+            <span class="bg-white text-black font-semibold px-2.5 py-1 rounded-md">
+              TIME Best Inventions
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupAiSimulator() {
+    const presets: Record<string, { title: string; badge: string; desc: string; colors: string[] }> = {
+      ceramics: {
+        title: "Terra Clay & Glaze",
+        badge: "Earth & Craft",
+        desc: "Warm natural clay textures, handcrafted ceramic vases, weekend pottery workshop booking via Acuity Scheduling, and secure checkout.",
+        colors: ["#8C5E45", "#D4B996", "#2C221E", "#FAF7F2"],
+      },
+      bakery: {
+        title: "Maison Dorée Bakery",
+        badge: "Artisan Culinary",
+        desc: "Daily fresh sourdough offerings, pre-order pickup scheduling, catering inquiry forms, and Instagram photography feed integration.",
+        colors: ["#D97706", "#FDE68A", "#78350F", "#FFFBEB"],
+      },
+      architect: {
+        title: "København Architecture Studio",
+        badge: "Nordic Minimalist",
+        desc: "Minimalist full-bleed project portfolios, bespoke residential case studies, team monographs, and press feature archives.",
+        colors: ["#18181B", "#71717A", "#E4E4E7", "#FFFFFF"],
+      },
+    };
+
+    const buttons = document.querySelectorAll<HTMLButtonElement>(".ai-preset-btn");
+    const titleEl = document.getElementById("ai-site-title");
+    const badgeEl = document.getElementById("ai-site-badge");
+    const descEl = document.getElementById("ai-site-description");
+    const paletteEl = document.getElementById("ai-palette-dots");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const key = btn.getAttribute("data-ai-preset");
+        if (!key || !presets[key]) return;
+
+        buttons.forEach((b) => {
+          b.classList.remove("bg-white", "text-black");
+          b.classList.add("bg-white/5", "text-neutral-400");
+        });
+
+        btn.classList.add("bg-white", "text-black");
+        btn.classList.remove("bg-white/5", "text-neutral-400");
+
+        const data = presets[key];
+        if (titleEl) titleEl.textContent = data.title;
+        if (badgeEl) badgeEl.textContent = data.badge;
+        if (descEl) descEl.textContent = `"${data.desc}"`;
+
+        if (paletteEl) {
+          paletteEl.innerHTML = data.colors
+            .map((c) => `<span class="w-3.5 h-3.5 rounded-full inline-block" style="background-color: ${c}"></span>`)
+            .join("");
+        }
+      });
+    });
+  }
+
+  setupAiSimulator();
+  document.addEventListener("astro:page-load", setupAiSimulator);
+</script>

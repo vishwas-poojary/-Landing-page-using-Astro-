@@ -1,0 +1,190 @@
+---
+const barberVideo = {
+  mp4: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/barber-desktop.mp4",
+  webm: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/barber-desktop.webm",
+  poster: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/barber-desktop-poster-1500w.webp",
+};
+---
+
+<section
+  id="hero"
+  class="relative h-screen min-h-[640px] w-full flex flex-col justify-between overflow-hidden bg-black text-white select-none"
+  aria-label="Hero Section"
+>
+  <!-- Fullscreen Video Background with Mobile Poster Fallback -->
+  <div class="absolute inset-0 w-full h-full z-0 overflow-hidden bg-black">
+    <!-- Poster fallback image behind video for seamless zero-flicker loading -->
+    <img
+      id="hero-poster-fallback"
+      src={barberVideo.poster}
+      alt="Hero visual background preview"
+      class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-opacity duration-1000"
+      loading="eager"
+      fetchpriority="high"
+    />
+
+    <!-- Video Element -->
+    <video
+      id="hero-background-video"
+      class="absolute inset-0 w-full h-full object-cover object-center will-change-transform transform-gpu"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="auto"
+      poster={barberVideo.poster}
+    >
+      <source src={barberVideo.webm} type="video/webm" />
+      <source src={barberVideo.mp4} type="video/mp4" />
+    </video>
+
+    <!-- Dark & Vignette Readability Gradient Overlays -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/90 pointer-events-none z-1"></div>
+    <div class="absolute inset-0 bg-black/25 pointer-events-none z-1"></div>
+  </div>
+
+  <!-- Top Spacing for Fixed Navigation -->
+  <div class="h-24 sm:h-28 shrink-0"></div>
+
+  <!-- Hero Center Content with Choreographed Entrance & Scroll Transform -->
+  <div
+    id="hero-content"
+    class="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 flex flex-col items-center justify-center text-center my-auto will-change-transform transform-gpu"
+  >
+    <!-- Large Headline: Entrance 2 (opacity 0 → 1, translateY 60px → 0) -->
+    <h1 class="hero-headline-in font-sans font-medium tracking-[-0.035em] leading-[1.02] text-white drop-shadow-md">
+      <span class="block text-5xl sm:text-7xl md:text-8xl lg:text-[100px] xl:text-[112px]">
+        A website
+      </span>
+      <span class="block text-5xl sm:text-7xl md:text-8xl lg:text-[100px] xl:text-[112px]">
+        makes it real
+      </span>
+    </h1>
+
+    <!-- Supporting Paragraph: Entrance 3 (opacity 0 → 1, translateY 30px → 0) -->
+    <p class="hero-paragraph-in text-neutral-200 text-base sm:text-lg md:text-xl font-normal max-w-2xl mx-auto mt-6 sm:mt-8 leading-relaxed drop-shadow">
+      Turn any vision into a stunning digital brand. Create an award-winning website, sell products or services, and grow your audience seamlessly.
+    </p>
+
+    <!-- Call to Actions: Entrance 4 (staggered buttons: opacity 0 → 1, translateY 20px → 0) -->
+    <div class="pt-8 sm:pt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full sm:w-auto">
+      <!-- Primary CTA -->
+      <a
+        href="#templates"
+        id="hero-primary-cta"
+        class="hero-cta-1-in inline-flex items-center justify-center bg-white text-black hover:bg-neutral-100 font-bold uppercase tracking-[0.08em] text-xs sm:text-sm px-8 sm:px-10 py-3.5 sm:py-4 rounded-[4px] shadow-2xl transition-all duration-200 hover:scale-[1.02] cursor-pointer w-full sm:w-auto group"
+      >
+        <span>GET STARTED</span>
+        <span class="transition-transform duration-200 group-hover:translate-x-1 ml-1.5">→</span>
+      </a>
+
+      <!-- Secondary CTA -->
+      <a
+        href="#explore-section"
+        id="hero-secondary-cta"
+        class="hero-cta-2-in inline-flex items-center justify-center bg-transparent border border-white/40 hover:border-white text-white hover:bg-white/10 font-bold uppercase tracking-[0.08em] text-xs sm:text-sm px-8 sm:px-10 py-3.5 sm:py-4 rounded-[4px] backdrop-blur-sm transition-all duration-200 hover:scale-[1.02] cursor-pointer w-full sm:w-auto"
+      >
+        EXPLORE TEMPLATES
+      </a>
+    </div>
+
+    <!-- Assurance Tagline -->
+    <p class="hero-paragraph-in text-neutral-400 text-xs sm:text-sm mt-4 font-normal tracking-wide">
+      Start for free. No credit card required.
+    </p>
+  </div>
+
+  <!-- Bottom Scroll Indicator: Entrance 5 (appears last) -->
+  <div
+    id="hero-scroll-indicator"
+    class="hero-scroll-in relative z-10 w-full flex flex-col items-center justify-center pb-8 shrink-0 transition-opacity duration-300"
+  >
+    <a
+      href="#explore-section"
+      class="group flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors duration-200 focus:outline-none"
+      aria-label="Scroll down to explore"
+    >
+      <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 group-hover:text-white transition-colors">
+        SCROLL
+      </span>
+      <div class="w-5 h-9 rounded-full border border-white/30 flex items-start justify-center p-1 group-hover:border-white/60 transition-colors">
+        <div class="w-1.5 h-2 bg-white rounded-full animate-scroll-bob"></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<script>
+  function initHero() {
+    const heroSection = document.getElementById("hero");
+    const video = document.getElementById("hero-background-video") as HTMLVideoElement | null;
+    const heroContent = document.getElementById("hero-content");
+    const scrollIndicator = document.getElementById("hero-scroll-indicator");
+
+    if (!heroSection) return;
+
+    // 1. Guaranteed Autoplay for Mobile & Desktop
+    if (video) {
+      video.muted = true;
+      video.defaultMuted = true;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Fallback: retry with muted or maintain poster fallback
+          video.muted = true;
+          video.play().catch(() => {
+            // Autoplay restricted (e.g. Low Power Mode), poster remains visible
+          });
+        });
+      }
+    }
+
+    // 2. Scroll Choreography (smooth, GPU-accelerated)
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    let ticking = false;
+
+    function onScroll() {
+      const scrollY = window.scrollY;
+      const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
+      const progress = Math.min(Math.max(scrollY / heroHeight, 0), 1);
+
+      // Hero video scales slightly (1.0 -> 1.08)
+      if (video) {
+        const scale = 1 + progress * 0.08;
+        video.style.transform = `scale3d(${scale}, ${scale}, 1)`;
+      }
+
+      // Hero content fades gradually and moves upward
+      if (heroContent) {
+        const opacity = Math.max(1 - progress * 1.5, 0);
+        const translateY = -progress * 60;
+        heroContent.style.opacity = `${opacity}`;
+        heroContent.style.transform = `translate3d(0, ${translateY}px, 0)`;
+      }
+
+      // Scroll indicator fades out rapidly on scroll
+      if (scrollIndicator) {
+        const indicatorOpacity = Math.max(1 - progress * 3.5, 0);
+        scrollIndicator.style.opacity = `${indicatorOpacity}`;
+      }
+
+      ticking = false;
+    }
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          window.requestAnimationFrame(onScroll);
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
+  }
+
+  initHero();
+  document.addEventListener("astro:page-load", initHero);
+</script>

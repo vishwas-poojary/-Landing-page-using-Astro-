@@ -1,0 +1,74 @@
+---
+import { faqData } from "@/lib/site-content";
+---
+
+<section id="faq" class="py-20 lg:py-32 bg-black border-b border-white/10 relative">
+  <div class="sqsp-container max-w-4xl">
+    <div class="mb-14 reveal-on-scroll">
+      <span class="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-3 block">
+        Clear Answers
+      </span>
+      <h2 class="sqsp-headline-lg font-medium text-white mb-4">
+        {faqData.title}
+      </h2>
+    </div>
+
+    <!-- Accordion List -->
+    <div class="space-y-4 reveal-on-scroll">
+      {faqData.items.map((item, idx) => (
+        <div class="faq-item border border-white/10 rounded-2xl overflow-hidden bg-neutral-950/60 transition-all duration-200">
+          <button
+            type="button"
+            class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left text-base sm:text-lg font-medium text-white hover:text-neutral-200 transition-colors cursor-pointer"
+            aria-expanded="false"
+          >
+            <span>{item.question}</span>
+            <span class="faq-icon ml-4 shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-sm transition-transform duration-300">
+              ↓
+            </span>
+          </button>
+
+          <div class="faq-content hidden px-6 pb-6 text-sm text-neutral-400 leading-relaxed border-t border-white/5 pt-4">
+            <p>{item.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupFaq() {
+    const items = document.querySelectorAll<HTMLElement>(".faq-item");
+
+    items.forEach((item) => {
+      const trigger = item.querySelector<HTMLButtonElement>(".faq-trigger");
+      const content = item.querySelector<HTMLElement>(".faq-content");
+      const icon = item.querySelector<HTMLElement>(".faq-icon");
+
+      trigger?.addEventListener("click", () => {
+        const isOpen = !content?.classList.contains("hidden");
+
+        // Close all
+        items.forEach((other) => {
+          other.querySelector(".faq-content")?.classList.add("hidden");
+          const otherIcon = other.querySelector<HTMLElement>(".faq-icon");
+          if (otherIcon) otherIcon.style.transform = "rotate(0deg)";
+          other.querySelector(".faq-trigger")?.setAttribute("aria-expanded", "false");
+          other.classList.remove("border-white/30");
+        });
+
+        // If wasn't open, open this one
+        if (!isOpen && content) {
+          content.classList.remove("hidden");
+          if (icon) icon.style.transform = "rotate(180deg)";
+          trigger.setAttribute("aria-expanded", "true");
+          item.classList.add("border-white/30");
+        }
+      });
+    });
+  }
+
+  setupFaq();
+  document.addEventListener("astro:page-load", setupFaq);
+</script>

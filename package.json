@@ -1,0 +1,42 @@
+{
+  "name": "astro-landing-page",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint",
+    "prepare": "husky",
+    "spellcheck": "cspell \"src/**/*.{js,ts,jsx,tsx,md,astro}\"",
+    "bump-version": "npx tsx scripts/bump-version.ts"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.2.1",
+    "astro": "^5.4.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lenis": "^1.1.20",
+    "lucide-react": "^0.475.0",
+    "postcss": "^8.5.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.8",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "cspell": "^9.3.2",
+    "eslint": "^9",
+    "globals": "^17.3.0",
+    "husky": "^9.1.7",
+    "tailwindcss": "^4.0.8",
+    "tw-animate-css": "^1.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  }
+}

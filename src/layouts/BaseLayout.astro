@@ -1,0 +1,65 @@
+---
+import "../styles/globals.css";
+import SEO from "@/components/shared/SEO.astro";
+import Header from "@/components/shared/Header.astro";
+import Footer from "@/components/shared/Footer.astro";
+import { siteConfig } from "@/lib/site-content";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = siteConfig.title,
+  description = siteConfig.description,
+  image = siteConfig.ogImage,
+  canonicalURL,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <SEO title={title} description={description} image={image} canonicalURL={canonicalURL} />
+
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Preload video posters for zero-layout-shift -->
+    <link
+      rel="preload"
+      href="https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/barber-desktop-poster-1500w.webp"
+      as="image"
+      fetchpriority="high"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 30' fill='white'><path fill-rule='evenodd' clip-rule='evenodd' d='M21.5542 6.19939L23.3865 8.02863L23.3835 8.03156L11.6382 19.7716C10.3536 21.0568 8.63974 21.7655 6.81638 21.7655C4.99302 21.7655 3.27918 21.0568 1.99454 19.7716C-0.663544 17.113 -0.663544 12.7899 1.99454 10.1314L12.1296 0L13.9618 1.82923L3.82678 11.9606C2.17806 13.6075 2.17806 16.2896 3.82678 17.9394C5.4755 19.5893 8.16022 19.5893 9.80894 17.9394L21.5542 6.19939Z'/></svg>" />
+  </head>
+  <body class="bg-black text-white antialiased selection:bg-white selection:text-black min-h-screen flex flex-col">
+    <!-- Header -->
+    <Header />
+
+    <!-- Main Content Area -->
+    <div id="page-wrapper" class="flex-1 flex flex-col pt-0">
+      <slot />
+    </div>
+
+    <!-- Footer -->
+    <Footer />
+
+    <!-- Smooth Scroll & Motion Observers -->
+    <script>
+      import "@/scripts/lenis";
+      import "@/scripts/accessibility";
+    </script>
+  </body>
+</html>

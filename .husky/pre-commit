@@ -1,0 +1,4 @@
+#!/bin/sh
+npm run spellcheck
+npm run lint
+npm run build
