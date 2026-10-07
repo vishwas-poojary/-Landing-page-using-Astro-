@@ -11,6 +11,8 @@
     "lint": "eslint",
     "prepare": "husky",
     "spellcheck": "cspell \"src/**/*.{js,ts,jsx,tsx,md,astro}\"",
+    "precommit": "npm run spellcheck && npm run lint && npm run build",
+    "pre-commit": "npm run spellcheck && npm run lint && npm run build",
     "bump-version": "npx tsx scripts/bump-version.ts"
   },
   "dependencies": {

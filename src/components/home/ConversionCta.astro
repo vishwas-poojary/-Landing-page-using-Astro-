@@ -1,48 +1,46 @@
 ---
+const conversionVideo = {
+  mp4: "https://media-www.sqspcdn.com/images/components/conversion/conversion-centered.mp4",
+  poster: "https://media-www.sqspcdn.com/images/components/conversion/conversion-centered-poster-1500w.webp",
+};
 ---
 
-<section id="conversion" class="py-24 lg:py-36 bg-black relative overflow-hidden">
-  <!-- Glowing subtle gradient halo -->
-  <div class="absolute inset-0 bg-radial-[circle_at_center] from-white/[0.05] via-transparent to-transparent pointer-events-none"></div>
+<section id="conversion" class="relative min-h-[90vh] py-32 flex items-center justify-center bg-black text-white overflow-hidden select-none">
+  <!-- Glowing Particle Sphere Video Background (Matching Screenshot 4) -->
+  <div class="absolute inset-0 w-full h-full z-0 flex items-center justify-center overflow-hidden">
+    <video
+      class="w-full h-full max-w-[1200px] max-h-[1200px] object-contain opacity-75 transform scale-110 pointer-events-none"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="auto"
+      poster={conversionVideo.poster}
+    >
+      <source src={conversionVideo.mp4} type="video/mp4" />
+    </video>
 
-  <div class="sqsp-container max-w-4xl text-center relative z-10 space-y-8 reveal-on-scroll" data-motion="fade-up">
-    <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-white/10 text-white border border-white/10">
-      Ready to build?
-    </span>
+    <!-- Ambient Darkening Radial Gradient -->
+    <div class="absolute inset-0 bg-radial-[circle_at_center] from-transparent via-black/40 to-black pointer-events-none"></div>
+  </div>
 
-    <h2 class="sqsp-headline-lg font-medium text-white max-w-3xl mx-auto leading-tight">
-      Start your free website trial today
+  <!-- Content Overlay (Matching Screenshot 4) -->
+  <div class="sqsp-container max-w-4xl text-center relative z-10 space-y-6">
+    <h2 class="text-4xl sm:text-6xl md:text-7xl lg:text-[80px] font-sans font-medium tracking-tight text-white leading-[1.05] drop-shadow-lg">
+      Start your free website trial<br />today
     </h2>
 
-    <p class="sqsp-body-lg text-neutral-300 max-w-xl mx-auto">
-      Turn any vision into reality. No credit card required, unlimited customization, and award-winning templates ready for your business.
+    <p class="text-neutral-400 text-sm sm:text-base font-normal tracking-wide drop-shadow">
+      No credit card required. Cancel anytime.
     </p>
 
-    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="#templates" class="btn-sqsp-primary text-xs !py-3.5 !px-8 uppercase tracking-widest shadow-2xl group w-full sm:w-auto">
-        <span>GET STARTED</span>
-        <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+    <div class="pt-6 flex justify-center">
+      <a
+        href="#templates"
+        class="inline-flex items-center justify-center bg-white text-black hover:bg-neutral-100 font-bold uppercase tracking-[0.08em] text-xs sm:text-sm px-10 sm:px-14 py-4 rounded-[4px] shadow-2xl transition-all duration-200 hover:scale-[1.02] cursor-pointer"
+      >
+        GET STARTED
       </a>
-      <a href="#templates" class="btn-sqsp-secondary text-xs !py-3.5 !px-8 uppercase tracking-widest w-full sm:w-auto">
-        BROWSE TEMPLATES
-      </a>
-    </div>
-
-    <!-- Assurance indicators -->
-    <div class="pt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs text-neutral-400">
-      <span class="flex items-center gap-2">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        <span>Free 14-day trial</span>
-      </span>
-      <span class="flex items-center gap-2">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        <span>No credit card required</span>
-      </span>
-      <span class="flex items-center gap-2">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        <span>Cancel anytime</span>
-      </span>
     </div>
   </div>
 </section>
-

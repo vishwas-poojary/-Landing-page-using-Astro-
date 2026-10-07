@@ -1,0 +1,168 @@
+---
+const stats = [
+  { value: "14M+", label: "Websites and stores launched worldwide" },
+  { value: "$30B+", label: "In transactions powered across 200+ countries" },
+  { value: "99.9%", label: "Platform uptime and award-winning 24/7 support" },
+];
+---
+
+<section id="showcase" class="py-20 lg:py-28 bg-black text-white relative overflow-hidden">
+  <div class="sqsp-container">
+    <!-- Expanded Cards Slider Strip (Matching Screenshot 2) -->
+    <div class="relative group/showcase">
+      <div id="showcase-slider" class="flex gap-6 lg:gap-8 overflow-x-auto no-scrollbar snap-x snap-mandatory py-4">
+        
+        <!-- Card 1: Balance Wellness Center -->
+        <div class="shrink-0 w-[90vw] sm:w-[650px] lg:w-[720px] snap-center rounded-2xl lg:rounded-3xl bg-[#17181c] p-6 sm:p-10 shadow-2xl border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-semibold uppercase tracking-widest text-neutral-400 pb-4 border-b border-white/10">
+              <span class="text-white">BALANCE</span>
+              <div class="flex items-center gap-4">
+                <span>Services</span>
+                <span>Facilities</span>
+                <span class="text-white">Bookings →</span>
+              </div>
+            </div>
+            <div class="mt-8">
+              <h3 class="text-4xl sm:text-5xl font-medium tracking-tight text-white uppercase">Balance</h3>
+              <p class="text-xs uppercase tracking-widest text-neutral-400 mt-1">(WELLNESS CENTER)</p>
+            </div>
+          </div>
+
+          <div class="mt-10 rounded-xl overflow-hidden aspect-[16/9] bg-neutral-900 border border-white/10">
+            <img
+              src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1200&q=80"
+              alt="Balance Wellness Center"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Card 2: Academic Lessons by Scott Smith (Exact match to Screenshot 2) -->
+        <div class="shrink-0 w-[90vw] sm:w-[650px] lg:w-[720px] snap-center rounded-2xl lg:rounded-3xl bg-[#f0eae1] text-black p-6 sm:p-10 shadow-2xl border border-neutral-300/40 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-neutral-600 pb-4 border-b border-neutral-300">
+              <span class="font-sans">SCOTT SMITH TUTORING</span>
+              <div class="flex items-center gap-4">
+                <span>Lessons</span>
+                <span>Testimonials</span>
+                <span class="text-black font-bold">Schedule a Lesson →</span>
+              </div>
+            </div>
+            <div class="mt-8">
+              <h3 class="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight text-neutral-900 leading-none">
+                ACADEMIC<br />LESSONS
+              </h3>
+              <p class="text-xs uppercase tracking-widest text-neutral-600 mt-3 font-medium">BY SCOTT SMITH</p>
+            </div>
+          </div>
+
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+            <div class="rounded-xl overflow-hidden aspect-[4/3] bg-neutral-200">
+              <img
+                src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80"
+                alt="Academic Lessons book and coffee"
+                class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div class="space-y-3">
+              <p class="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans">
+                Personalized academic tutoring to build confidence, strengthen skills, and support success.
+              </p>
+              <span class="inline-block text-xs font-bold uppercase tracking-wider text-black bg-white px-4 py-2 rounded shadow-sm">
+                View curriculum →
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: LIO AGENCY (Exact match to Screenshot 2) -->
+        <div class="shrink-0 w-[90vw] sm:w-[650px] lg:w-[720px] snap-center rounded-2xl lg:rounded-3xl bg-[#121316] text-white p-6 sm:p-10 shadow-2xl border border-white/10 flex flex-col justify-between relative">
+          <div>
+            <div class="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-neutral-400 pb-4 border-b border-white/10">
+              <span>LIO AGENCY</span>
+              <span>NEW YORK / LONDON</span>
+            </div>
+            <div class="mt-8">
+              <h3 class="text-4xl sm:text-5xl font-black tracking-tighter text-white uppercase font-sans">
+                LIO AGENCY
+              </h3>
+              <p class="text-xs text-neutral-400 mt-2 max-w-sm">
+                A creative agency creating identities, imagery, and cultural relevance.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-8 grid grid-cols-2 gap-4">
+            <div class="rounded-xl overflow-hidden aspect-[3/4] bg-neutral-900 border border-white/10">
+              <img
+                src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80"
+                alt="Perfume bottle editorial"
+                class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div class="rounded-xl overflow-hidden aspect-[3/4] bg-neutral-900 border border-white/10">
+              <img
+                src="https://images.unsplash.com/photo-1581553680321-4fffae59fccd?auto=format&fit=crop&w=600&q=80"
+                alt="Gold suitcase editorial"
+                class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Floating White "Next" Button matching Screenshot 2 -->
+          <button 
+            id="slider-next-btn"
+            class="absolute right-6 bottom-10 bg-white text-black font-bold uppercase tracking-wider text-xs px-5 py-2.5 rounded-full shadow-2xl hover:bg-neutral-200 transition-transform hover:scale-105 cursor-pointer z-20 flex items-center gap-1.5"
+            aria-label="Next slide"
+          >
+            <span>Next</span>
+            <span>→</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Centered Tagline & Counter Strip (Matching Screenshot 2) -->
+    <div class="mt-20 sm:mt-28 text-center max-w-3xl mx-auto space-y-4">
+      <p class="text-xl sm:text-2xl lg:text-3xl font-medium text-neutral-200 tracking-tight leading-snug">
+        Join millions of entrepreneurs who run their business on Squarespace.
+      </p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 pt-10 border-t border-white/10">
+      {stats.map((s) => (
+        <div class="text-center space-y-2">
+          <div class="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white font-sans">
+            {s.value}
+          </div>
+          <p class="text-xs sm:text-sm text-neutral-400 font-normal max-w-xs mx-auto">
+            {s.label}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupShowcaseSlider() {
+    const slider = document.getElementById("showcase-slider");
+    const nextBtn = document.getElementById("slider-next-btn");
+
+    nextBtn?.addEventListener("click", () => {
+      if (slider) {
+        slider.scrollBy({ left: 400, behavior: "smooth" });
+      }
+    });
+  }
+
+  setupShowcaseSlider();
+  document.addEventListener("astro:page-load", setupShowcaseSlider);
+</script>

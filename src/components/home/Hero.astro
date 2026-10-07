@@ -1,23 +1,23 @@
 ---
-const barberVideo = {
-  mp4: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/barber-desktop.mp4",
-  webm: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/barber-desktop.webm",
-  poster: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/barber-desktop-poster-1500w.webp",
+const wellnessVideo = {
+  mp4: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/wellness-desktop.mp4",
+  webm: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/wellness-desktop.webm",
+  poster: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/wellness-desktop-poster-1500w.webp",
 };
 ---
 
 <section
   id="hero"
-  class="relative h-screen min-h-[640px] w-full flex flex-col justify-between overflow-hidden bg-black text-white select-none"
+  class="relative min-h-screen h-[100dvh] w-full flex flex-col justify-between overflow-hidden bg-black text-white select-none"
   aria-label="Hero Section"
 >
-  <!-- Fullscreen Video Background with Mobile Poster Fallback -->
+  <!-- Fullscreen Dancer Background Video with Poster Fallback -->
   <div class="absolute inset-0 w-full h-full z-0 overflow-hidden bg-black">
-    <!-- Poster fallback image behind video for seamless zero-flicker loading -->
+    <!-- Poster fallback image behind video for zero flicker -->
     <img
       id="hero-poster-fallback"
-      src={barberVideo.poster}
-      alt="Hero visual background preview"
+      src={wellnessVideo.poster}
+      alt="Hero visual dancer preview"
       class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-opacity duration-1000"
       loading="eager"
       fetchpriority="high"
@@ -32,26 +32,26 @@ const barberVideo = {
       muted
       playsinline
       preload="auto"
-      poster={barberVideo.poster}
+      poster={wellnessVideo.poster}
     >
-      <source src={barberVideo.webm} type="video/webm" />
-      <source src={barberVideo.mp4} type="video/mp4" />
+      <source src={wellnessVideo.webm} type="video/webm" />
+      <source src={wellnessVideo.mp4} type="video/mp4" />
     </video>
 
     <!-- Dark & Vignette Readability Gradient Overlays -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/90 pointer-events-none z-1"></div>
-    <div class="absolute inset-0 bg-black/25 pointer-events-none z-1"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 pointer-events-none z-1"></div>
+    <div class="absolute inset-0 bg-black/15 pointer-events-none z-1"></div>
   </div>
 
-  <!-- Top Spacing for Fixed Navigation -->
+  <!-- Spacer to push center content down from fixed header -->
   <div class="h-24 sm:h-28 shrink-0"></div>
 
-  <!-- Hero Center Content with Choreographed Entrance & Scroll Transform -->
+  <!-- Hero Center Content with Choreographed Entrance Animations -->
   <div
     id="hero-content"
-    class="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 flex flex-col items-center justify-center text-center my-auto will-change-transform transform-gpu"
+    class="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 flex flex-col items-center justify-center text-center my-auto will-change-transform transform-gpu pt-4 pb-8"
   >
-    <!-- Large Headline: Entrance 2 (opacity 0 → 1, translateY 60px → 0) -->
+    <!-- Headline: Exactly two lines from Screenshot 1 -->
     <h1 class="hero-headline-in font-sans font-medium tracking-[-0.035em] leading-[1.02] text-white drop-shadow-md">
       <span class="block text-5xl sm:text-7xl md:text-8xl lg:text-[100px] xl:text-[112px]">
         A website
@@ -61,56 +61,95 @@ const barberVideo = {
       </span>
     </h1>
 
-    <!-- Supporting Paragraph: Entrance 3 (opacity 0 → 1, translateY 30px → 0) -->
-    <p class="hero-paragraph-in text-neutral-200 text-base sm:text-lg md:text-xl font-normal max-w-2xl mx-auto mt-6 sm:mt-8 leading-relaxed drop-shadow">
-      Turn any vision into a stunning digital brand. Create an award-winning website, sell products or services, and grow your audience seamlessly.
-    </p>
-
-    <!-- Call to Actions: Entrance 4 (staggered buttons: opacity 0 → 1, translateY 20px → 0) -->
-    <div class="pt-8 sm:pt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full sm:w-auto">
-      <!-- Primary CTA -->
+    <!-- Primary White CTA Button -->
+    <div class="pt-8 sm:pt-10 flex items-center justify-center w-full">
       <a
         href="#templates"
         id="hero-primary-cta"
-        class="hero-cta-1-in inline-flex items-center justify-center bg-white text-black hover:bg-neutral-100 font-bold uppercase tracking-[0.08em] text-xs sm:text-sm px-8 sm:px-10 py-3.5 sm:py-4 rounded-[4px] shadow-2xl transition-all duration-200 hover:scale-[1.02] cursor-pointer w-full sm:w-auto group"
+        class="hero-cta-1-in inline-flex items-center justify-center bg-white text-black hover:bg-neutral-100 font-bold uppercase tracking-[0.08em] text-xs sm:text-sm px-9 sm:px-12 py-3.5 sm:py-4 rounded-[4px] shadow-2xl transition-all duration-200 hover:scale-[1.02] cursor-pointer"
       >
-        <span>GET STARTED</span>
-        <span class="transition-transform duration-200 group-hover:translate-x-1 ml-1.5">→</span>
-      </a>
-
-      <!-- Secondary CTA -->
-      <a
-        href="#explore-section"
-        id="hero-secondary-cta"
-        class="hero-cta-2-in inline-flex items-center justify-center bg-transparent border border-white/40 hover:border-white text-white hover:bg-white/10 font-bold uppercase tracking-[0.08em] text-xs sm:text-sm px-8 sm:px-10 py-3.5 sm:py-4 rounded-[4px] backdrop-blur-sm transition-all duration-200 hover:scale-[1.02] cursor-pointer w-full sm:w-auto"
-      >
-        EXPLORE TEMPLATES
+        GET STARTED
       </a>
     </div>
 
-    <!-- Assurance Tagline -->
-    <p class="hero-paragraph-in text-neutral-400 text-xs sm:text-sm mt-4 font-normal tracking-wide">
+    <!-- Subtext -->
+    <p class="hero-paragraph-in text-white/90 text-xs sm:text-sm mt-4 font-normal tracking-wide drop-shadow">
       Start for free. No credit card required.
     </p>
   </div>
 
-  <!-- Bottom Scroll Indicator: Entrance 5 (appears last) -->
-  <div
-    id="hero-scroll-indicator"
-    class="hero-scroll-in relative z-10 w-full flex flex-col items-center justify-center pb-8 shrink-0 transition-opacity duration-300"
+  <!-- Bottom Peeking Cards Strip (Exact Cards from Screenshot 1 & 2) -->
+  <div 
+    id="hero-peeking-cards"
+    class="relative z-10 w-full max-w-[1600px] mx-auto px-4 sm:px-8 mt-auto transform translate-y-16 sm:translate-y-12 transition-transform duration-700 ease-out will-change-transform"
   >
-    <a
-      href="#explore-section"
-      class="group flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors duration-200 focus:outline-none"
-      aria-label="Scroll down to explore"
-    >
-      <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 group-hover:text-white transition-colors">
-        SCROLL
-      </span>
-      <div class="w-5 h-9 rounded-full border border-white/30 flex items-start justify-center p-1 group-hover:border-white/60 transition-colors">
-        <div class="w-1.5 h-2 bg-white rounded-full animate-scroll-bob"></div>
+    <div class="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-12 gap-5 sm:gap-8 items-end no-scrollbar pb-3 md:pb-0">
+      
+      <!-- Card 1 (Left): BOROUGH BARBER -->
+      <div class="shrink-0 w-[78vw] sm:w-[50vw] md:w-auto snap-center md:col-span-3 rounded-t-2xl sm:rounded-t-3xl bg-[#e9e3da] text-black p-5 shadow-2xl border-t border-x border-white/20 transition-all duration-300 hover:-translate-y-3 cursor-pointer">
+        <div class="flex items-center justify-between text-[10px] uppercase font-bold tracking-widest text-neutral-800 pb-3 border-b border-neutral-300">
+          <span>BOROUGH BARBER</span>
+          <span class="hover:underline">SERVICES / BOOK NOW</span>
+        </div>
+        <div class="pt-4 pb-2 text-center">
+          <span class="font-serif text-2xl sm:text-3xl tracking-tight text-neutral-900">
+            MASTER GROOMING
+          </span>
+          <p class="text-[9px] uppercase tracking-widest text-neutral-600 mt-1">Precision Cuts & Hot Towels</p>
+        </div>
       </div>
-    </a>
+
+      <!-- Card 2 (Center): BALANCE (WELLNESS CENTER) - Matching Screenshot 1 -->
+      <div class="shrink-0 w-[88vw] sm:w-[70vw] md:w-auto snap-center md:col-span-6 rounded-t-2xl sm:rounded-t-3xl bg-[#17181c] text-white p-6 sm:p-7 shadow-[0_-25px_60px_rgba(0,0,0,0.7)] border-t border-x border-white/30 transition-all duration-300 hover:-translate-y-3 cursor-pointer">
+        <!-- Website Mockup Chrome Header -->
+        <div class="flex items-center justify-between text-[10px] sm:text-[11px] uppercase font-bold tracking-widest text-neutral-400 pb-4 border-b border-white/10">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-white/70"></span>
+            <span class="text-white font-semibold">BALANCE</span>
+          </div>
+          <div class="flex items-center gap-4 sm:gap-6 text-neutral-400">
+            <span class="hover:text-white transition-colors">Services</span>
+            <span class="hover:text-white transition-colors">Facilities</span>
+            <span class="hover:text-white transition-colors">Memberships</span>
+            <span class="text-white flex items-center gap-1 hover:underline">
+              Bookings →
+            </span>
+          </div>
+        </div>
+
+        <!-- Inner visual preview -->
+        <div class="mt-4 flex items-center justify-between">
+          <div>
+            <span class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white uppercase font-sans">
+              Balance
+            </span>
+            <p class="text-[10px] sm:text-xs uppercase tracking-widest text-neutral-400 mt-1">
+              (WELLNESS CENTER)
+            </p>
+          </div>
+          <div class="text-right">
+            <span class="inline-block text-[11px] font-bold text-black bg-white px-3.5 py-1.5 rounded-[3px] hover:bg-neutral-200 transition-colors uppercase tracking-wider">
+              Explore →
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 (Right): ACADEMIC LESSONS BY SCOTT SMITH - Matching Screenshot 1 & 2 -->
+      <div class="shrink-0 w-[78vw] sm:w-[50vw] md:w-auto snap-center md:col-span-3 rounded-t-2xl sm:rounded-t-3xl bg-[#f0eae1] text-black p-5 shadow-2xl border-t border-x border-white/20 transition-all duration-300 hover:-translate-y-3 cursor-pointer">
+        <div class="flex items-center justify-between text-[10px] uppercase font-bold tracking-widest text-neutral-600 pb-3 border-b border-neutral-300">
+          <span>SCOTT SMITH TUTORING</span>
+          <span>Lessons</span>
+        </div>
+        <div class="pt-4 pb-2 text-center">
+          <span class="font-serif text-xl sm:text-2xl tracking-tight text-neutral-900 uppercase">
+            ACADEMIC LESSONS
+          </span>
+          <p class="text-[9px] uppercase tracking-widest text-neutral-500 mt-1">BY SCOTT SMITH</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -119,27 +158,19 @@ const barberVideo = {
     const heroSection = document.getElementById("hero");
     const video = document.getElementById("hero-background-video") as HTMLVideoElement | null;
     const heroContent = document.getElementById("hero-content");
-    const scrollIndicator = document.getElementById("hero-scroll-indicator");
+    const peekingCards = document.getElementById("hero-peeking-cards");
 
-    if (!heroSection) return;
-
-    // 1. Guaranteed Autoplay for Mobile & Desktop
+    // Autoplay Guarantee
     if (video) {
       video.muted = true;
       video.defaultMuted = true;
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Fallback: retry with muted or maintain poster fallback
-          video.muted = true;
-          video.play().catch(() => {
-            // Autoplay restricted (e.g. Low Power Mode), poster remains visible
-          });
-        });
-      }
+      video.play().catch(() => {
+        video.muted = true;
+        video.play().catch(() => {});
+      });
     }
 
-    // 2. Scroll Choreography (smooth, GPU-accelerated)
+    // Scroll-scrubbed elevation
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
@@ -148,26 +179,31 @@ const barberVideo = {
     function onScroll() {
       const scrollY = window.scrollY;
       const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
-      const progress = Math.min(Math.max(scrollY / heroHeight, 0), 1);
+      const progress = Math.min(Math.max(scrollY / (heroHeight * 0.8), 0), 1);
 
-      // Hero video scales slightly (1.0 -> 1.08)
+      // Hero video scales slightly
       if (video) {
         const scale = 1 + progress * 0.08;
         video.style.transform = `scale3d(${scale}, ${scale}, 1)`;
       }
 
-      // Hero content fades gradually and moves upward
+      // Hero content fades and moves up
       if (heroContent) {
         const opacity = Math.max(1 - progress * 1.5, 0);
-        const translateY = -progress * 60;
+        const translateY = -progress * 50;
         heroContent.style.opacity = `${opacity}`;
         heroContent.style.transform = `translate3d(0, ${translateY}px, 0)`;
       }
 
-      // Scroll indicator fades out rapidly on scroll
-      if (scrollIndicator) {
-        const indicatorOpacity = Math.max(1 - progress * 3.5, 0);
-        scrollIndicator.style.opacity = `${indicatorOpacity}`;
+      // Peeking cards lift up as you scroll
+      if (peekingCards) {
+        if (scrollY > 30) {
+          peekingCards.classList.remove("translate-y-16", "sm:translate-y-12");
+          peekingCards.classList.add("translate-y-2");
+        } else {
+          peekingCards.classList.add("translate-y-16", "sm:translate-y-12");
+          peekingCards.classList.remove("translate-y-2");
+        }
       }
 
       ticking = false;
