@@ -1,0 +1,142 @@
+---
+const stats = [
+  {
+    value: "14M+",
+    number: 14,
+    suffix: "M+",
+    label: "Entrepreneurs Served",
+  },
+  {
+    value: "$36B+",
+    number: 36,
+    prefix: "$",
+    suffix: "B+",
+    label: "Earned by Entrepreneurs",
+  },
+  {
+    value: "200+",
+    number: 200,
+    suffix: "+",
+    label: "Countries & Territories",
+  },
+];
+---
+
+<section
+  id="metrics-bar"
+  class="relative bg-black text-white py-20 sm:py-28 lg:py-32 border-b border-white/10 overflow-hidden select-none"
+  aria-label="Key Platform Metrics"
+>
+  <div class="sqsp-container max-w-6xl mx-auto px-6 sm:px-8 text-center">
+    <!-- Caption Header matching Screenshot 2 -->
+    <p
+      id="metrics-caption"
+      class="text-xs sm:text-sm lg:text-base text-neutral-400 font-normal tracking-wide mb-12 sm:mb-16 lg:mb-20 will-change-transform"
+    >
+      Join millions of entrepreneurs who run their business on Squarespace.
+    </p>
+
+    <!-- 3-Column Stats Grid matching Screenshot 2 -->
+    <div
+      id="metrics-grid"
+      class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-12 items-center justify-center"
+    >
+      {stats.map((stat) => (
+        <div
+          class="metric-item flex flex-col items-center justify-center text-center will-change-transform"
+          data-number={stat.number}
+          data-prefix={stat.prefix || ""}
+          data-suffix={stat.suffix || ""}
+        >
+          <!-- Big Minimalist Stat Number -->
+          <div class="text-6xl sm:text-7xl lg:text-8xl xl:text-[92px] font-sans font-light tracking-tight text-white leading-none">
+            <span class="metric-value">{stat.value}</span>
+          </div>
+
+          <!-- Muted Clean Label -->
+          <p class="text-xs sm:text-sm text-neutral-400 font-medium tracking-wider mt-4 sm:mt-5">
+            {stat.label}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initMetricsAnimation() {
+    const section = document.getElementById("metrics-bar");
+    const caption = document.getElementById("metrics-caption");
+    const items = document.querySelectorAll(".metric-item");
+
+    if (!section) return;
+
+    // Fade-up reveal for caption
+    if (caption) {
+      gsap.fromTo(
+        caption,
+        { opacity: 0, y: 24 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: caption,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+
+    // Staggered fade-up & counter scrub for the 3 columns
+    if (items.length > 0) {
+      gsap.fromTo(
+        items,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.18,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: "#metrics-grid",
+            start: "top 80%",
+            toggleActions: "play none none none",
+            onEnter: () => {
+              // Smooth number count-up animation
+              items.forEach((item) => {
+                const targetNumber = parseFloat(item.getAttribute("data-number") || "0");
+                const prefix = item.getAttribute("data-prefix") || "";
+                const suffix = item.getAttribute("data-suffix") || "";
+                const valueEl = item.querySelector(".metric-value");
+
+                if (valueEl && targetNumber > 0) {
+                  const counter = { val: 0 };
+                  gsap.to(counter, {
+                    val: targetNumber,
+                    duration: 1.6,
+                    ease: "power2.out",
+                    onUpdate: () => {
+                      valueEl.textContent = `${prefix}${Math.round(counter.val)}${suffix}`;
+                    },
+                  });
+                }
+              });
+            },
+          },
+        }
+      );
+    }
+  }
+
+  initMetricsAnimation();
+  document.addEventListener("astro:page-load", initMetricsAnimation);
+</script>

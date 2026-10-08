@@ -1,28 +1,44 @@
 ---
 import HomeLayout from "@/layouts/HomeLayout.astro";
 import { siteConfig } from "@/lib/site-content";
-import Hero from "@/components/home/Hero.astro";
-import ShowcaseSection from "@/components/home/ShowcaseSection.astro";
-import FeatureCardsCarousel from "@/components/home/FeatureCardsCarousel.astro";
+import Hero from "@/components/Hero.astro";
+import MetricsBar from "@/components/MetricsBar.astro";
+import TabbedShowcase from "@/components/TabbedShowcase.astro";
+import FeatureGrid from "@/components/FeatureGrid.astro";
+import AIFeatures from "@/components/AIFeatures.astro";
+import DomainSearch from "@/components/DomainSearch.astro";
+import CylinderGallery from "@/components/CylinderGallery.astro";
 import TemplatesShowcase from "@/components/home/TemplatesShowcase.astro";
-import ConversionCta from "@/components/home/ConversionCta.astro";
+import PreFooterCTA from "@/components/PreFooterCTA.astro";
 ---
 
 <HomeLayout title={siteConfig.title} description={siteConfig.description}>
   <main id="main-content" class="flex-1 overflow-x-hidden">
-    <!-- Hero Section (Screenshot 1) -->
+    <!-- Hero Section (Screenshots 1 & 3) -->
     <Hero />
 
-    <!-- Showcase Section & Stats Strip (Screenshot 2) -->
-    <ShowcaseSection />
+    <!-- Trust Metrics Bar (Screenshot 2) -->
+    <MetricsBar />
 
-    <!-- 4 Feature Cards Carousel (Screenshot 3) -->
-    <FeatureCardsCarousel />
+    <!-- Tabbed Showcase: Grow Your Business (Screenshots 1, 3, 4) -->
+    <TabbedShowcase />
+
+    <!-- Feature Grid: Everything You Need On One Platform (Screenshots 3 & 4) -->
+    <FeatureGrid />
+
+    <!-- AI Feature Comparison & Templates (Screenshots 1 & 2) -->
+    <AIFeatures />
+
+    <!-- Domain Search & Social Proof (Screenshots 1 & 3) -->
+    <DomainSearch />
+
+    <!-- 3D Cylindrical Gallery Showcase: Made with Squarespace (Screenshots 2 & 3) -->
+    <CylinderGallery />
 
     <!-- Award-Winning Templates Showcase -->
     <TemplatesShowcase />
 
-    <!-- Bottom Conversion CTA with Particle Sphere Video (Screenshot 4) -->
-    <ConversionCta />
+    <!-- Pre-Footer Conversion CTA (Screenshot 2) -->
+    <PreFooterCTA />
   </main>
 </HomeLayout>

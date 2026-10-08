@@ -1,0 +1,511 @@
+---
+// Video assets from Squarespace CDN matching the official rotating slides
+const slidesData = [
+  {
+    id: "tutor",
+    title: "Academic Lessons",
+    brand: "SCOTT SMITH TUTORING",
+    theme: "light",
+    bgClass: "bg-[#f1ebe2] text-neutral-900",
+    headerMenu: ["Lessons", "Testimonials", "Rates"],
+    headerCta: "Schedule a Lesson",
+    headlineMain: "ACADEMIC",
+    headlineSub: "LESSONS",
+    author: "BY SCOTT SMITH",
+    description: "Personalized academic tutoring to build confidence, strengthen skills, and support success.",
+    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80",
+    imageAlt: "Books and ceramic coffee mug on academic desk",
+    video: {
+      mp4: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/tutor-desktop.mp4",
+      webm: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/tutor-desktop.webm",
+      poster: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/tutor-desktop-poster-1500w.webp",
+    },
+  },
+  {
+    id: "wellness",
+    title: "Balance Wellness",
+    brand: "BALANCE",
+    theme: "dark",
+    bgClass: "bg-[#16171b] text-white",
+    headerMenu: ["Services", "Facilities", "Memberships"],
+    headerCta: "Bookings →",
+    headlineMain: "BALANCE",
+    headlineSub: "(WELLNESS CENTER)",
+    author: "LOS ANGELES, CA",
+    description: "A space designed to help you slow down, reset, and reconnect through holistic therapies.",
+    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=900&q=80",
+    imageAlt: "Wellness minimalist stones and tranquility space",
+    video: {
+      mp4: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/wellness-desktop.mp4",
+      webm: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/wellness-desktop.webm",
+      poster: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/wellness-desktop-poster-1500w.webp",
+    },
+  },
+  {
+    id: "creative",
+    title: "Lio Agency",
+    brand: "LIO AGENCY",
+    theme: "dark",
+    bgClass: "bg-[#111215] text-white",
+    headerMenu: ["Work", "Capabilities", "About"],
+    headerCta: "Start Project →",
+    headlineMain: "LIO",
+    headlineSub: "AGENCY",
+    author: "NEW YORK / LONDON",
+    description: "A creative agency creating identities, imagery, and cultural relevance for iconic brands.",
+    image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80",
+    imageAlt: "Minimalist skincare product dropper and luxury packaging",
+    video: {
+      mp4: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/creative-desktop.mp4",
+      webm: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/creative-desktop.webm",
+      poster: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/creative-desktop-poster-1500w.webp",
+    },
+  },
+  {
+    id: "barber",
+    title: "Borough Barber",
+    brand: "BOROUGH BARBER",
+    theme: "light",
+    bgClass: "bg-[#ebe4da] text-neutral-900",
+    headerMenu: ["Services", "Barbers", "Hours"],
+    headerCta: "Book Appointment",
+    headlineMain: "PRECISION",
+    headlineSub: "GROOMING",
+    author: "EST. 2019 • BROOKLYN, NY",
+    description: "Traditional hot towel shaves, bespoke scissor work, and grooming for everyday life.",
+    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80",
+    imageAlt: "Vintage barber scissors and comb tools",
+    video: {
+      mp4: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/barber-desktop.mp4",
+      webm: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/barber-desktop.webm",
+      poster: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/barber-desktop-poster-1500w.webp",
+    },
+  },
+  {
+    id: "plants",
+    title: "Botanical Studio",
+    brand: "PLANTS",
+    theme: "light",
+    bgClass: "bg-[#e2e4dc] text-neutral-900",
+    headerMenu: ["Botanicals", "Vessels", "Workshops"],
+    headerCta: "Shop Rare Flora",
+    headlineMain: "LIVING",
+    headlineSub: "OBJECTS",
+    author: "8 CLARKSON ST • NEW YORK",
+    description: "Curated indoor botanical specimens, handmade stoneware vessels, and plant care.",
+    image: "https://images.unsplash.com/photo-1487700160041-babef9c3cb55?auto=format&fit=crop&w=900&q=80",
+    imageAlt: "Yellow lilies and architectural flower design",
+    video: {
+      mp4: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/plants-desktop.mp4",
+      webm: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/plants-desktop.webm",
+      poster: "https://media-www.sqspcdn.com/images/pages/homepage-2025/hero/videos/sept-2026/plants-desktop-poster-1500w.webp",
+    },
+  },
+];
+---
+
+<section
+  id="hero-section"
+  class="relative min-h-[100dvh] w-full flex flex-col justify-between overflow-hidden bg-black text-white select-none pt-24 sm:pt-28"
+  aria-label="Squarespace Hero Section"
+>
+  <!-- Background Crossfading Video Player (Plays automatically and switches smoothly with the slides) -->
+  <div class="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+    <!-- Active Video Layer A -->
+    <video
+      id="hero-video-a"
+      class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out opacity-100"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="auto"
+      poster={slidesData[0].video.poster}
+    >
+      <source src={slidesData[0].video.webm} type="video/webm" />
+      <source src={slidesData[0].video.mp4} type="video/mp4" />
+    </video>
+
+    <!-- Crossfade Video Layer B -->
+    <video
+      id="hero-video-b"
+      class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out opacity-0"
+      loop
+      muted
+      playsinline
+      preload="none"
+    >
+      <source src="" type="video/webm" />
+      <source src="" type="video/mp4" />
+    </video>
+
+    <!-- Dark cinematic vignette gradients for sharp readability matching screenshots -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/90 pointer-events-none z-1"></div>
+    <div class="absolute inset-0 bg-radial-gradient from-transparent via-black/20 to-black/60 pointer-events-none z-1"></div>
+  </div>
+
+  <!-- Hero Headline & Primary CTA Container -->
+  <div class="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center justify-center pt-8 pb-4 sm:pb-6">
+    <!-- Main Headline: "A website makes it real" exactly as in Screenshot 1 -->
+    <h1 class="font-sans font-medium text-white tracking-[-0.035em] leading-[1.03] drop-shadow-lg max-w-4xl">
+      <span class="block text-5xl sm:text-7xl md:text-8xl lg:text-[104px]">
+        A website
+      </span>
+      <span class="block text-5xl sm:text-7xl md:text-8xl lg:text-[104px]">
+        makes it real
+      </span>
+    </h1>
+
+    <!-- Primary CTA Button -->
+    <div class="pt-8 sm:pt-9 flex items-center justify-center w-full">
+      <a
+        href="#templates"
+        id="hero-get-started-btn"
+        class="inline-flex items-center justify-center bg-white text-black hover:bg-neutral-100 font-bold uppercase tracking-[0.07em] text-[13px] sm:text-sm px-8 sm:px-10 py-3.5 sm:py-4 rounded-[4px] shadow-2xl transition-all duration-200 hover:scale-[1.02] cursor-pointer"
+      >
+        GET STARTED
+      </a>
+    </div>
+
+    <!-- Microcopy beneath CTA -->
+    <p class="text-white/85 text-xs sm:text-[13px] mt-4 font-normal tracking-wide drop-shadow">
+      Start for free. No credit card required.
+    </p>
+  </div>
+
+  <!-- 3D Perspective Slider Container (Beneath Headline, Peeking Upwards) -->
+  <div class="relative z-20 w-full overflow-hidden pb-8 sm:pb-12 pt-4">
+    <!-- Interactive Track Navigation Chevrons -->
+    <div class="max-w-[1400px] mx-auto px-4 relative">
+      <button
+        id="slider-prev-btn"
+        class="hidden sm:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white items-center justify-center hover:bg-white hover:text-black transition-all duration-200 shadow-2xl hover:scale-105 cursor-pointer"
+        aria-label="Previous Slide"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <button
+        id="slider-next-btn"
+        class="hidden sm:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white items-center justify-center hover:bg-white hover:text-black transition-all duration-200 shadow-2xl hover:scale-105 cursor-pointer"
+        aria-label="Next Slide"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- Carousel Cards Perspective Wrapper -->
+      <div
+        id="hero-slider-viewport"
+        class="w-full relative flex items-center justify-center overflow-visible perspective-[1200px]"
+      >
+        <div
+          id="hero-slider-track"
+          class="flex items-center transition-none will-change-transform py-4"
+          data-current-index="0"
+        >
+          {slidesData.map((slide, idx) => (
+            <div
+              class="hero-slide-item shrink-0 px-3 sm:px-5 transition-all duration-500 will-change-transform cursor-pointer"
+              data-slide-index={idx}
+              data-video-mp4={slide.video.mp4}
+              data-video-webm={slide.video.webm}
+              data-video-poster={slide.video.poster}
+              style="width: clamp(320px, 68vw, 840px);"
+            >
+              <!-- Card Container: Styled with high-fidelity mockup headers & editorial visuals -->
+              <div
+                class={`slide-card-inner rounded-2xl sm:rounded-3xl ${slide.bgClass} shadow-[0_20px_60px_rgba(0,0,0,0.8)] border border-white/15 overflow-hidden transition-all duration-500 flex flex-col justify-between`}
+              >
+                <!-- Card Mockup Top Bar -->
+                <div class="px-5 sm:px-8 pt-5 sm:pt-6 pb-4 border-b border-black/10 dark:border-white/10 flex items-center justify-between text-[10px] sm:text-[11px] font-bold tracking-widest uppercase">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-current opacity-70"></span>
+                    <span class="font-sans tracking-[0.1em]">{slide.brand}</span>
+                  </div>
+
+                  <!-- Nav Items in Mockup -->
+                  <div class="hidden sm:flex items-center gap-5 opacity-70 font-medium tracking-wider">
+                    {slide.headerMenu.map((m) => (
+                      <span>{m}</span>
+                    ))}
+                  </div>
+
+                  <!-- Pill CTA inside Card -->
+                  <div class="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-current opacity-90">
+                    {slide.headerCta}
+                  </div>
+                </div>
+
+                <!-- Card Body: Split Editorial Content + Visual Mockup -->
+                <div class="p-5 sm:p-8 lg:p-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                  <!-- Left Text Column -->
+                  <div class="md:col-span-6 space-y-3 sm:space-y-4">
+                    <p class="text-[10px] sm:text-xs font-semibold tracking-widest uppercase opacity-60">
+                      {slide.author}
+                    </p>
+
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-[0.98]">
+                      <span class="block">{slide.headlineMain}</span>
+                      <span class="block italic font-light">{slide.headlineSub}</span>
+                    </h2>
+
+                    <p class="text-xs sm:text-sm opacity-80 leading-relaxed font-sans line-clamp-3 pt-1">
+                      {slide.description}
+                    </p>
+
+                    <div class="pt-2">
+                      <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider underline underline-offset-4 opacity-90 hover:opacity-100">
+                        Explore template →
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Right Visual Column -->
+                  <div class="md:col-span-6 relative">
+                    <div class="rounded-xl overflow-hidden aspect-[4/3] sm:aspect-[16/11] bg-black/10 shadow-lg border border-black/5 dark:border-white/10 group">
+                      <img
+                        src={slide.image}
+                        alt={slide.imageAlt}
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        loading={idx === 0 ? "eager" : "lazy"}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bottom Status Bar -->
+                <div class="px-5 sm:px-8 py-3 bg-black/5 dark:bg-white/5 border-t border-black/10 dark:border-white/10 flex items-center justify-between text-[10px] tracking-wider uppercase opacity-60 font-mono">
+                  <span>Template 0{idx + 1} of 0{slidesData.length}</span>
+                  <span class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    Live Preview Ready
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide Indicators & Auto-Play Progress Bar -->
+    <div class="flex items-center justify-center gap-2 pt-6">
+      {slidesData.map((_, idx) => (
+        <button
+          class="slider-dot w-8 sm:w-10 h-1.5 rounded-full bg-white/20 hover:bg-white/50 transition-all duration-300 overflow-hidden cursor-pointer"
+          data-dot-index={idx}
+          aria-label={`Jump to slide ${idx + 1}`}
+        >
+          <div class="dot-progress w-0 h-full bg-white transition-all"></div>
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+
+  function initHeroSlider() {
+    const track = document.getElementById("hero-slider-track");
+    const viewport = document.getElementById("hero-slider-viewport");
+    const slides = Array.from(document.querySelectorAll<HTMLElement>(".hero-slide-item"));
+    const dots = Array.from(document.querySelectorAll<HTMLElement>(".slider-dot"));
+    const prevBtn = document.getElementById("slider-prev-btn");
+    const nextBtn = document.getElementById("slider-next-btn");
+
+    const videoA = document.getElementById("hero-video-a") as HTMLVideoElement | null;
+    const videoB = document.getElementById("hero-video-b") as HTMLVideoElement | null;
+
+    if (!track || slides.length === 0 || !viewport) return;
+
+    let currentIndex = 0;
+    let autoPlayTimer: any = null;
+    let activeVideoLayer: "A" | "B" = "A";
+    const totalSlides = slides.length;
+    const AUTOPLAY_DELAY = 6500; // ms
+
+    // Updates cards scale & opacity matching the specification:
+    // Center card: scale 1, opacity 1
+    // Side cards: scale 0.88, opacity 0.45
+    function updateSlideTransforms(animate = true) {
+      const viewportWidth = viewport!.offsetWidth;
+      const cardWidth = slides[0].offsetWidth;
+      const targetOffset = (viewportWidth - cardWidth) / 2 - currentIndex * cardWidth;
+
+      if (animate) {
+        gsap.to(track, {
+          x: targetOffset,
+          duration: 0.85,
+          ease: "power3.out",
+        });
+      } else {
+        gsap.set(track, { x: targetOffset });
+      }
+
+      slides.forEach((slide, i) => {
+        const cardInner = slide.querySelector<HTMLElement>(".slide-card-inner");
+        const isCenter = i === currentIndex;
+        const scaleVal = isCenter ? 1 : 0.88;
+        const opacityVal = isCenter ? 1 : 0.45;
+        const zIndexVal = isCenter ? 20 : 10;
+
+        slide.style.zIndex = zIndexVal.toString();
+
+        if (cardInner) {
+          if (animate) {
+            gsap.to(cardInner, {
+              scale: scaleVal,
+              opacity: opacityVal,
+              duration: 0.85,
+              ease: "power3.out",
+            });
+          } else {
+            gsap.set(cardInner, {
+              scale: scaleVal,
+              opacity: opacityVal,
+            });
+          }
+        }
+      });
+
+      // Update dots indicator
+      dots.forEach((dot, idx) => {
+        const progressBar = dot.querySelector<HTMLElement>(".dot-progress");
+        if (idx === currentIndex) {
+          dot.classList.add("bg-white/40", "!w-12");
+          dot.classList.remove("bg-white/20");
+          if (progressBar) {
+            gsap.killTweensOf(progressBar);
+            gsap.fromTo(
+              progressBar,
+              { width: "0%" },
+              { width: "100%", duration: AUTOPLAY_DELAY / 1000, ease: "none" }
+            );
+          }
+        } else {
+          dot.classList.remove("bg-white/40", "!w-12");
+          dot.classList.add("bg-white/20");
+          if (progressBar) {
+            gsap.killTweensOf(progressBar);
+            gsap.set(progressBar, { width: "0%" });
+          }
+        }
+      });
+    }
+
+    // Seamlessly crossfade background videos on slide change
+    function switchBackgroundVideo(index: number) {
+      const targetSlide = slides[index];
+      if (!targetSlide || !videoA || !videoB) return;
+
+      const mp4Url = targetSlide.getAttribute("data-video-mp4");
+      const webmUrl = targetSlide.getAttribute("data-video-webm");
+      const posterUrl = targetSlide.getAttribute("data-video-poster");
+
+      if (!mp4Url) return;
+
+      const incoming = activeVideoLayer === "A" ? videoB : videoA;
+      const outgoing = activeVideoLayer === "A" ? videoA : videoB;
+
+      // Setup incoming video sources
+      if (posterUrl) incoming.poster = posterUrl;
+      incoming.innerHTML = `
+        <source src="${webmUrl}" type="video/webm" />
+        <source src="${mp4Url}" type="video/mp4" />
+      `;
+      incoming.load();
+
+      const playPromise = incoming.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            // Smooth cross-fade
+            incoming.style.opacity = "1";
+            outgoing.style.opacity = "0";
+            activeVideoLayer = activeVideoLayer === "A" ? "B" : "A";
+          })
+          .catch(() => {
+            // Autoplay policies fallback: switch immediately
+            incoming.style.opacity = "1";
+            outgoing.style.opacity = "0";
+            activeVideoLayer = activeVideoLayer === "A" ? "B" : "A";
+          });
+      }
+    }
+
+    function goToSlide(index: number, manual = true) {
+      if (index === currentIndex && manual) return;
+      currentIndex = (index + totalSlides) % totalSlides;
+      updateSlideTransforms(true);
+      switchBackgroundVideo(currentIndex);
+
+      if (manual) {
+        restartAutoPlay();
+      }
+    }
+
+    function restartAutoPlay() {
+      if (autoPlayTimer) clearInterval(autoPlayTimer);
+      autoPlayTimer = setInterval(() => {
+        goToSlide((currentIndex + 1) % totalSlides, false);
+      }, AUTOPLAY_DELAY);
+    }
+
+    // Event listeners
+    prevBtn?.addEventListener("click", () => goToSlide(currentIndex - 1));
+    nextBtn?.addEventListener("click", () => goToSlide(currentIndex + 1));
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener("click", () => goToSlide(idx));
+    });
+
+    // Clicking side card brings it to center
+    slides.forEach((slide, idx) => {
+      slide.addEventListener("click", () => {
+        if (idx !== currentIndex) {
+          goToSlide(idx);
+        }
+      });
+    });
+
+    // Touch / Swipe support
+    let startX = 0;
+    let endX = 0;
+    viewport.addEventListener(
+      "touchstart",
+      (e) => {
+        startX = e.touches[0].clientX;
+      },
+      { passive: true }
+    );
+
+    viewport.addEventListener(
+      "touchend",
+      (e) => {
+        endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) goToSlide(currentIndex + 1);
+          else goToSlide(currentIndex - 1);
+        }
+      },
+      { passive: true }
+    );
+
+    // Resize handler to recalculate center offset
+    window.addEventListener("resize", () => updateSlideTransforms(false));
+
+    // Initialize layout and start timer
+    updateSlideTransforms(false);
+    restartAutoPlay();
+  }
+
+  // Mount on first load and on Astro transitions
+  initHeroSlider();
+  document.addEventListener("astro:page-load", initHeroSlider);
+</script>

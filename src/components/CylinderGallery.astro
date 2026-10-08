@@ -1,0 +1,234 @@
+---
+const galleryCards = [
+  {
+    title: "Stretch Squared",
+    category: "Fitness & Recovery",
+    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80",
+    bgClass: "bg-[#16171b]",
+  },
+  {
+    title: "Let's connect!",
+    category: "Botanical Design",
+    image: "https://images.unsplash.com/photo-1487700160041-babef9c3cb55?auto=format&fit=crop&w=600&q=80",
+    bgClass: "bg-[#253026]",
+  },
+  {
+    title: "SecondStory",
+    category: "Publishing & Media",
+    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80",
+    bgClass: "bg-[#e8e4dc] text-neutral-900",
+  },
+  {
+    title: "Flâneur Magazine",
+    category: "Independent Press",
+    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80",
+    bgClass: "bg-[#111215]",
+  },
+  {
+    title: "Ceramic Object",
+    category: "Handmade Pottery",
+    image: "https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?auto=format&fit=crop&w=600&q=80",
+    bgClass: "bg-[#1e2330]",
+  },
+  {
+    title: "Naughty Nancy",
+    category: "Restaurant & Bar",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80",
+    bgClass: "bg-[#1b1716]",
+  },
+  {
+    title: "A ritual best shared",
+    category: "Fragrance & Care",
+    image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80",
+    bgClass: "bg-[#e5e4de] text-neutral-900",
+  },
+  {
+    title: "Reseda Architecture",
+    category: "Spatial Design",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80",
+    bgClass: "bg-[#151619]",
+  },
+];
+
+const websiteSteps = [
+  {
+    step: "01",
+    title: "Choose a template",
+    description: "Start with an award-winning designer template tailored for your industry or use Blueprint AI to generate a custom foundation.",
+  },
+  {
+    step: "02",
+    title: "Claim your custom domain",
+    description: "Search and register a memorable domain name or connect one you already own with free WHOIS privacy and SSL included.",
+  },
+  {
+    step: "03",
+    title: "Add content & customize styling",
+    description: "Use Fluid Engine™ drag-and-drop technology to arrange blocks, adjust typography, insert photos, and package products or services.",
+  },
+  {
+    step: "04",
+    title: "Publish and grow",
+    description: "Launch your site, optimize SEO, and power your marketing with integrated email campaigns and social media integrations.",
+  },
+];
+---
+
+<section
+  id="cylinder-gallery-section"
+  class="relative bg-black text-white pt-16 sm:pt-24 pb-20 sm:pb-32 overflow-hidden select-none"
+  aria-label="Made with Squarespace 3D Gallery"
+>
+  <!-- 3D Perspective Stage Container -->
+  <div class="relative w-full overflow-hidden perspective-[1400px] min-h-[520px] sm:min-h-[640px] flex items-center justify-center">
+    <!-- Center Headline Overlay matching Screenshot 2 & 3 -->
+    <div class="absolute z-20 text-center pointer-events-none px-4">
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-white/95 font-normal tracking-tight leading-tight drop-shadow-2xl">
+        Made with<br />Squarespace
+      </h2>
+    </div>
+
+    <!-- 3D Curved Cylindrical Track Container -->
+    <div
+      id="cylinder-3d-track"
+      class="relative w-full max-w-[1500px] h-[480px] sm:h-[580px] flex items-center justify-center transform-style-3d will-change-transform"
+    >
+      {galleryCards.map((card, idx) => {
+        // Calculate angle on 3D cylindrical ring
+        const total = galleryCards.length;
+        const angle = (idx / total) * 360;
+        const radius = 620; // 3D cylinder radius in px
+
+        return (
+          <div
+            class="cylinder-card absolute w-[240px] sm:w-[300px] lg:w-[340px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/15 shadow-2xl transition-all duration-300 hover:border-white/50 cursor-pointer group"
+            data-card-angle={angle}
+            style={`
+              transform: rotateY(${angle}deg) translateZ(${radius}px);
+              transform-style: preserve-3d;
+            `}
+          >
+            <!-- Mockup Card Body -->
+            <div class={`w-full h-full ${card.bgClass} relative flex flex-col justify-between p-3.5 sm:p-4`}>
+              <img
+                src={card.image}
+                alt={card.title}
+                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/30"></div>
+
+              <!-- Mini Top Bar -->
+              <div class="relative z-10 flex items-center justify-between text-[8px] uppercase tracking-wider opacity-80">
+                <span class="font-bold">{card.title}</span>
+                <span>View Site →</span>
+              </div>
+
+              <!-- Mini Bottom Label -->
+              <div class="relative z-10">
+                <span class="text-[9px] font-sans font-semibold text-white block">
+                  {card.title}
+                </span>
+                <span class="text-[7px] uppercase tracking-wider text-neutral-400 block font-mono">
+                  {card.category}
+                </span>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+
+  <!-- Bottom Expandable Trigger matching Screenshot 2 -->
+  <div class="sqsp-container max-w-5xl mx-auto px-6 sm:px-8 mt-16 sm:mt-24">
+    <div class="border-t border-white/15">
+      <button
+        id="how-to-build-trigger"
+        class="w-full flex items-center justify-between py-8 text-left text-2xl sm:text-3xl lg:text-4xl font-normal tracking-tight text-white hover:text-neutral-300 transition-colors cursor-pointer group"
+        aria-expanded="false"
+      >
+        <span>How to build a website</span>
+        <span
+          id="how-to-build-icon"
+          class="text-3xl sm:text-4xl font-light text-neutral-400 group-hover:text-white transition-transform duration-300"
+        >
+          +
+        </span>
+      </button>
+
+      <!-- Expandable Accordion Drawer -->
+      <div
+        id="how-to-build-drawer"
+        class="hidden overflow-hidden transition-all duration-500 pb-12 pt-4 border-t border-white/5"
+      >
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {websiteSteps.map((item) => (
+            <div class="space-y-3 bg-neutral-950/70 border border-white/10 rounded-2xl p-6">
+              <span class="text-xs font-mono font-bold text-neutral-500 block">
+                {item.step}
+              </span>
+              <h4 class="text-lg font-semibold text-white tracking-tight">
+                {item.title}
+              </h4>
+              <p class="text-xs text-neutral-400 leading-relaxed font-normal">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initCylinderGallery() {
+    const track = document.getElementById("cylinder-3d-track");
+    const section = document.getElementById("cylinder-gallery-section");
+    const trigger = document.getElementById("how-to-build-trigger");
+    const drawer = document.getElementById("how-to-build-drawer");
+    const icon = document.getElementById("how-to-build-icon");
+
+    if (track && section) {
+      // Rotate 3D cylinder on scroll scrub with ScrollTrigger
+      gsap.to(track, {
+        rotationY: 180,
+        rotationX: -4,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1.2,
+        },
+      });
+    }
+
+    // Expandable accordion toggle
+    if (trigger && drawer && icon) {
+      trigger.addEventListener("click", () => {
+        const isExpanded = trigger.getAttribute("aria-expanded") === "true";
+        if (isExpanded) {
+          trigger.setAttribute("aria-expanded", "false");
+          drawer.classList.add("hidden");
+          icon.textContent = "+";
+          icon.style.transform = "rotate(0deg)";
+        } else {
+          trigger.setAttribute("aria-expanded", "true");
+          drawer.classList.remove("hidden");
+          icon.textContent = "−";
+          icon.style.transform = "rotate(180deg)";
+        }
+      });
+    }
+  }
+
+  initCylinderGallery();
+  document.addEventListener("astro:page-load", initCylinderGallery);
+</script>

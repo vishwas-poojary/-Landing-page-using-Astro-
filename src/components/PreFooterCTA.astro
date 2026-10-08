@@ -1,0 +1,57 @@
+---
+const particleVideo = {
+  mp4: "https://media-www.sqspcdn.com/images/components/conversion/conversion-centered.mp4",
+  poster: "https://media-www.sqspcdn.com/images/components/conversion/conversion-centered-poster-1500w.webp",
+};
+---
+
+<section
+  id="pre-footer-cta"
+  class="relative min-h-[80vh] py-32 sm:py-44 bg-black text-white overflow-hidden flex flex-col items-center justify-center text-center select-none"
+  aria-label="Start Free Trial CTA"
+>
+  <!-- Central Glowing Particulate Sphere Background matching Screenshot 2 -->
+  <div class="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none overflow-hidden z-0">
+    <!-- Looping Particle Dome Video -->
+    <video
+      class="w-[720px] sm:w-[920px] lg:w-[1100px] h-[720px] sm:h-[920px] lg:h-[1100px] object-contain opacity-75 mix-blend-screen scale-110 sm:scale-125"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="auto"
+      poster={particleVideo.poster}
+    >
+      <source src={particleVideo.mp4} type="video/mp4" />
+    </video>
+
+    <!-- Ambient glowing radial light behind sphere -->
+    <div class="absolute w-[450px] sm:w-[650px] h-[450px] sm:h-[650px] rounded-full bg-radial from-white/10 via-transparent to-transparent blur-3xl pointer-events-none"></div>
+
+    <!-- Soft Vignette & Fade to Black at Edges -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none"></div>
+  </div>
+
+  <!-- Content Container matching Screenshot 2 -->
+  <div class="relative z-10 w-full max-w-4xl mx-auto px-6 sm:px-8 flex flex-col items-center justify-center">
+    <!-- Big Headline -->
+    <h2 class="font-sans text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-normal tracking-[-0.03em] leading-[1.04] text-white drop-shadow-2xl">
+      Start your free website trial<br />today
+    </h2>
+
+    <!-- Subtext -->
+    <p class="text-xs sm:text-sm text-neutral-300 mt-4 sm:mt-5 font-normal tracking-wide drop-shadow">
+      No credit card required. Cancel anytime.
+    </p>
+
+    <!-- White Pill Button -->
+    <div class="mt-8 sm:mt-9">
+      <a
+        href="#templates"
+        class="inline-flex items-center justify-center bg-white text-black hover:bg-neutral-100 font-bold uppercase tracking-[0.08em] text-xs sm:text-sm px-9 sm:px-11 py-3.5 sm:py-4 rounded-[4px] shadow-2xl transition-all duration-200 hover:scale-[1.02] cursor-pointer"
+      >
+        GET STARTED
+      </a>
+    </div>
+  </div>
+</section>
