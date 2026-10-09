@@ -12,277 +12,60 @@ const tabsList = [
 
 const cardsData = [
   {
-    id: "blog",
-    tabId: "blog",
-    title: "Post your ideas",
-    subtitle: "Launch a blog, grow your readership, and add paywalls to monetize access.",
-    bgImage: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80",
-    bgAlt: "Athlete training in fitness studio",
-    accentColor: "bg-[#181a1f]",
-    // Layered Mockup Elements
-    mockupHeader: "THE FITNESS GURU",
-    mockupNav: ["BLOG", "COURSES", "ABOUT", "BOOK SESSION"],
-    posts: [
-      {
-        tag: "WORKOUT",
-        title: "BENEFITS OF QUICK WORKOUTS",
-        img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=400&q=80",
-      },
-      {
-        tag: "NUTRITION",
-        title: "MEAL PREP IDEAS",
-        img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=80",
-      },
-    ],
-    floatingLeft: {
-      tag: "BLOG CONTENT",
-      title: "New Post",
-      subtitle: "Quick Workout",
-      img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=200&q=80",
-    },
-    floatingRight: {
-      title: "LAYOUT",
-      options: ["Masonry Blog", "Side By Side Blog", "Single Column Blog"],
-      selected: 0,
-    },
-  },
-  {
-    id: "portfolio",
-    tabId: "portfolio",
-    title: "Showcase your work",
-    subtitle: "Build a portfolio website to share your story, and help clients get in touch.",
-    bgImage: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80",
-    bgAlt: "Architectural design showcase",
-    accentColor: "bg-[#1f1917]",
-    mockupHeader: "ATELIER ARCHITECTURE",
-    mockupNav: ["PROJECTS", "STUDIO", "AWARDS", "CONTACT"],
-    posts: [
-      {
-        tag: "RESIDENTIAL",
-        title: "NORDIC LIGHT PAVILION",
-        img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80",
-      },
-      {
-        tag: "CULTURAL",
-        title: "MODERNIST STONE GALLERY",
-        img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=80",
-      },
-    ],
-    floatingLeft: {
-      tag: "ASSET MEDIA",
-      title: "High-Res Render",
-      subtitle: "abstract-arch.jpg",
-      img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=200&q=80",
-    },
-    floatingRight: {
-      title: "GALLERY STYLE",
-      options: ["Grid Showcase", "Carousel Reel", "Full Bleed Slides"],
-      selected: 0,
-    },
-  },
-  {
     id: "services",
     tabId: "services",
-    title: "Offer your services",
+    title: "Offer services",
     subtitle: "Package, promote, and get paid for your client work with automated intake.",
-    bgImage: "https://images.unsplash.com/photo-1542744094-3a31727223ec?auto=format&fit=crop&w=1200&q=80",
-    bgAlt: "Consulting and creative workspace",
-    accentColor: "bg-[#141a24]",
-    mockupHeader: "STUDIO STRATEGY",
-    mockupNav: ["SERVICES", "PACKAGES", "CASE STUDIES", "BOOK"],
-    posts: [
-      {
-        tag: "ADVISORY",
-        title: "BRAND POSITIONING SPRINT",
-        img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80",
-      },
-      {
-        tag: "CREATIVE",
-        title: "IDENTITY DESIGN SYSTEMS",
-        img: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=400&q=80",
-      },
-    ],
-    floatingLeft: {
-      tag: "BOOKING STEP",
-      title: "Step 1: Intake 00:30 ✓",
-      subtitle: "Step 2: Scope Call",
-      img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=200&q=80",
-    },
-    floatingRight: {
-      title: "PAYMENT TERMS",
-      options: ["50% Upfront Deposit", "Milestone Invoices", "Monthly Retainer"],
-      selected: 0,
-    },
+    image: "/images/showcase/services.png",
   },
   {
     id: "online-store",
     tabId: "online-store",
-    title: "Sell physical & digital goods",
+    title: "Sell products",
     subtitle: "Create an extraordinary storefront with rich product galleries and 1-click checkout.",
-    bgImage: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
-    bgAlt: "Luxury curated boutique",
-    accentColor: "bg-[#1a1c1a]",
-    mockupHeader: "MAISON MINIMAL",
-    mockupNav: ["COLLECTION", "LOOKBOOK", "STORES", "CART (2)"],
-    posts: [
-      {
-        tag: "CERAMICS",
-        title: "SCULPTURAL STONEWARE VASE",
-        img: "https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?auto=format&fit=crop&w=400&q=80",
-      },
-      {
-        tag: "OBJECTS",
-        title: "HAND-POURED SOY CANDLE",
-        img: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=400&q=80",
-      },
-    ],
-    floatingLeft: {
-      tag: "CHECKOUT",
-      title: "Apple Pay Enabled",
-      subtitle: "Instant 1-Click Buy",
-      img: "https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?auto=format&fit=crop&w=200&q=80",
-    },
-    floatingRight: {
-      title: "INVENTORY",
-      options: ["Real-time Tracking", "Low Stock Alerts", "Digital Downloads"],
-      selected: 0,
-    },
+    image: "/images/showcase/online-store.webp",
   },
   {
     id: "invoicing",
     tabId: "invoicing",
     title: "Get paid on time",
     subtitle: "Send branded estimates, accept milestone deposits, and track paid invoices.",
-    bgImage: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80",
-    bgAlt: "Financial paperwork and modern accounting",
-    accentColor: "bg-[#19191d]",
-    mockupHeader: "FREELANCE SUITE",
-    mockupNav: ["INVOICES", "CLIENTS", "ESTIMATES", "REPORTS"],
-    posts: [
-      {
-        tag: "INVOICE #1042",
-        title: "PAID • $4,850.00 USD",
-        img: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=400&q=80",
-      },
-      {
-        tag: "ESTIMATE #209",
-        title: "APPROVED • $12,200.00",
-        img: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=400&q=80",
-      },
-    ],
-    floatingLeft: {
-      tag: "STATUS",
-      title: "Automated Reminders",
-      subtitle: "Zero Overdue Fees",
-      img: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=200&q=80",
-    },
-    floatingRight: {
-      title: "GATEWAYS",
-      options: ["Stripe / Cards", "ACH Bank Transfer", "Afterpay / Klarna"],
-      selected: 0,
-    },
+    image: "/images/showcase/invoicing.png",
   },
   {
     id: "scheduling",
     tabId: "scheduling",
-    title: "Book appointments 24/7",
-    subtitle: "Automate calendar bookings, client questionnaires, and SMS confirmations.",
-    bgImage: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80",
-    bgAlt: "Meditation and calendar schedule",
-    accentColor: "bg-[#18191c]",
-    mockupHeader: "ACUITY SCHEDULING",
-    mockupNav: ["CALENDAR", "SERVICES", "CLIENTS", "SYNC"],
-    posts: [
-      {
-        tag: "SESSION",
-        title: "60-MIN PRIVATE CONSULTATION",
-        img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=400&q=80",
-      },
-      {
-        tag: "WORKSHOP",
-        title: "WEEKLY GROUP MASTERCLASS",
-        img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=400&q=80",
-      },
-    ],
-    floatingLeft: {
-      tag: "CALENDAR SYNC",
-      title: "Google / Outlook Sync",
-      subtitle: "Auto Timezone Detection",
-      img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=200&q=80",
-    },
-    floatingRight: {
-      title: "APPOINTMENTS",
-      options: ["Buffer Time Added", "Intake Forms Attached", "SMS Reminders"],
-      selected: 0,
-    },
+    title: "Get booked",
+    subtitle: "Seamless appointment booking, automated calendar management, and integrated payments.",
+    image: "/images/showcase/scheduling.webp",
   },
   {
     id: "donations",
     tabId: "donations",
-    title: "Fund your cause",
+    title: "Collect donations",
     subtitle: "Collect one-time or recurring contributions with customizable donor tiers.",
-    bgImage: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80",
-    bgAlt: "Community outreach and foundation work",
-    accentColor: "bg-[#171b19]",
-    mockupHeader: "HOPE FOUNDATION",
-    mockupNav: ["CAMPAIGNS", "IMPACT", "STORIES", "GIVE"],
-    posts: [
-      {
-        tag: "ANNUAL DRIVE",
-        title: "$48,200 RAISED OF $50,000",
-        img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=400&q=80",
-      },
-      {
-        tag: "CLEAN WATER",
-        title: "MONTHLY SUSTAINING DONORS",
-        img: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80",
-      },
-    ],
-    floatingLeft: {
-      tag: "DONATION TIERS",
-      title: "$25 • $50 • $100 • Custom",
-      subtitle: "Tax Receipts Generated",
-      img: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=200&q=80",
-    },
-    floatingRight: {
-      title: "FREQUENCY",
-      options: ["One-Time Gift", "Monthly Supporter", "Annual Patron"],
-      selected: 1,
-    },
+    image: "/images/showcase/donations.webp",
   },
   {
     id: "memberships",
     tabId: "memberships",
-    title: "Monetize your community",
+    title: "Monetize your content",
     subtitle: "Offer member-only video libraries, workshops, and private discussion forums.",
-    bgImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
-    bgAlt: "Creative collaborative community",
-    accentColor: "bg-[#181920]",
-    mockupHeader: "THE CREATOR CLUB",
-    mockupNav: ["LIBRARY", "COMMUNITY", "LIVE STREAMS", "ACCOUNT"],
-    posts: [
-      {
-        tag: "MEMBERS ONLY",
-        title: "ADVANCED MASTERCLASS REEL",
-        img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80",
-      },
-      {
-        tag: "SUBSCRIBERS",
-        title: "BEHIND-THE-SCENES ARCHIVE",
-        img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80",
-      },
-    ],
-    floatingLeft: {
-      tag: "PAYWALL",
-      title: "Member Portal Tier",
-      subtitle: "$19/month or $190/year",
-      img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=200&q=80",
-    },
-    floatingRight: {
-      title: "ACCESS RULES",
-      options: ["Video Gated", "PDF Downloads Only", "Full Community Vault"],
-      selected: 0,
-    },
+    image: "/images/showcase/memberships.png",
+  },
+  {
+    id: "blog",
+    tabId: "blog",
+    title: "Post your ideas",
+    subtitle: "Launch a blog, grow your readership, and add paywalls to monetize access.",
+    image: "/images/showcase/blog.png",
+  },
+  {
+    id: "portfolio",
+    tabId: "portfolio",
+    title: "Showcase your work",
+    subtitle: "Build a portfolio website to highlight projects, share your story, and help clients get in touch.",
+    image: "/images/showcase/portfolio.png",
   },
 ];
 ---
@@ -293,7 +76,7 @@ const cardsData = [
   aria-label="Grow Your Business Showcase"
 >
   <div class="sqsp-container max-w-[1560px] mx-auto px-4 sm:px-8">
-    <!-- Section Header matching Screenshot 1, 3, 4 -->
+    <!-- Section Header matching Squarespace -->
     <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
       <h2 class="font-sans text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-neutral-900">
         Grow your business
@@ -303,149 +86,87 @@ const cardsData = [
       </p>
     </div>
 
-    <!-- Horizontal Pill Tabs matching Screenshots 1, 3, 4 -->
-    <div class="flex items-center justify-start md:justify-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar pb-6 -mx-4 px-4 sm:mx-0 sm:px-0">
-      {tabsList.map((tab, idx) => (
-        <button
-          type="button"
-          data-tab-id={tab.id}
-          data-tab-index={idx}
-          class={`tab-pill-btn shrink-0 text-xs sm:text-sm font-medium px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-200 cursor-pointer ${
-            tab.id === "blog"
-              ? "bg-neutral-100 text-black font-semibold shadow-xs"
-              : "text-neutral-500 hover:text-black hover:bg-neutral-50"
-          }`}
-          aria-selected={tab.id === "blog" ? "true" : "false"}
-        >
-          {tab.label}
-        </button>
-      ))}
+    <!-- Centered Horizontal Pill Navigation -->
+    <div class="w-full flex justify-center items-center pb-6">
+      <div
+        id="tab-pills-bar"
+        class="inline-flex items-center justify-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar max-w-full px-4"
+      >
+        {tabsList.map((tab, idx) => (
+          <button
+            type="button"
+            data-tab-id={tab.id}
+            data-tab-index={idx}
+            class={`tab-pill-btn shrink-0 text-xs sm:text-sm font-medium px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-200 cursor-pointer ${
+              idx === 0
+                ? "bg-neutral-100 text-black font-semibold shadow-xs"
+                : "text-neutral-500 hover:text-black hover:bg-neutral-50"
+            }`}
+            aria-selected={idx === 0 ? "true" : "false"}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
     </div>
 
     <!-- Carousel Container with Multi-card Perspective / Peeking Track -->
-    <div class="relative mt-4 sm:mt-8">
+    <div class="relative mt-4 sm:mt-8 w-full">
       <!-- Carousel Viewport -->
       <div
         id="showcase-viewport"
-        class="w-full relative overflow-visible flex items-center justify-center"
+        class="w-full relative overflow-hidden"
       >
         <div
           id="showcase-track"
-          class="flex items-center transition-none will-change-transform py-4"
+          class="flex items-center will-change-transform py-4"
+          style="width: max-content;"
         >
           {cardsData.map((card, idx) => (
             <div
-              class="showcase-card-slide shrink-0 px-3 sm:px-5 transition-all duration-500 will-change-transform"
+              class="showcase-card-slide shrink-0 px-3 sm:px-5 will-change-transform"
               data-card-index={idx}
               data-card-tab={card.tabId}
               style="width: clamp(340px, 78vw, 1020px);"
             >
-              <!-- Card Container with Background Image Backdrop and Layered UI -->
+              <!-- Card Container with 100% Clarity and Zero Shaded Filter -->
               <div
-                class={`showcase-card-inner relative rounded-3xl overflow-hidden aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] shadow-2xl border border-neutral-200/60 ${card.accentColor} text-white flex flex-col justify-between p-6 sm:p-10 lg:p-12 transition-all duration-500`}
+                class="showcase-card-inner relative rounded-3xl sm:rounded-[32px] overflow-hidden aspect-[4/3] sm:aspect-[16/10] shadow-xl border border-neutral-200/40 bg-neutral-900 text-white flex flex-col justify-between p-6 sm:p-10 lg:p-12 transition-transform duration-500 group select-none"
+                style="opacity: 1;"
               >
-                <!-- Background Image of the real-world entrepreneur / environment -->
+                <!-- Authentic Showcase Image with Pure Clarity (no wash, no blur filter) -->
                 <img
-                  src={card.bgImage}
-                  alt={card.bgAlt}
-                  class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-45"
-                  loading="lazy"
+                  src={card.image}
+                  alt={card.title}
+                  class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-transform duration-700 group-hover:scale-[1.01]"
+                  style="opacity: 1; filter: none;"
+                  loading="eager"
+                  decoding="async"
                 />
 
-                <!-- Dark gradient overlay for contrast -->
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/60 pointer-events-none z-1"></div>
-
-                <!-- Top Card Headline & Description -->
+                <!-- Top Card Headline & Description with Crisp Text Shadows -->
                 <div class="relative z-10 max-w-xl">
-                  <h3 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
+                  <h3
+                    class="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]"
+                  >
                     {card.title}
                   </h3>
-                  <p class="text-xs sm:text-sm text-neutral-300 mt-2 sm:mt-3 leading-relaxed max-w-md">
+                  <p
+                    class="text-xs sm:text-sm md:text-base text-neutral-100 mt-2 sm:mt-3 leading-relaxed max-w-md drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)]"
+                  >
                     {card.subtitle}
                   </p>
                 </div>
 
-                <!-- Center Floating UI Mockup Window matching Screenshot 4 -->
-                <div class="relative z-10 mt-auto pt-6 w-full max-w-3xl mx-auto">
-                  <div class="bg-neutral-950/90 backdrop-blur-xl border border-white/15 rounded-2xl p-4 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
-                    <!-- Browser / Website Mockup Top Header -->
-                    <div class="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/10 text-[9px] sm:text-[11px] font-bold tracking-widest uppercase">
-                      <div class="flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-white/70"></span>
-                        <span class="text-white font-sans">{card.mockupHeader}</span>
-                      </div>
-                      <div class="hidden sm:flex items-center gap-4 text-neutral-400 font-medium">
-                        {card.mockupNav.map((item) => (
-                          <span class="hover:text-white transition-colors cursor-pointer">{item}</span>
-                        ))}
-                      </div>
-                      <span class="text-[9px] sm:text-[10px] text-white/80 border border-white/20 px-2.5 py-0.5 rounded-full">
-                        Live Site
-                      </span>
-                    </div>
-
-                    <!-- Inner Mockup Grid with Real Cards & Floating Layers -->
-                    <div class="relative mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
-                      {card.posts.map((post) => (
-                        <div class="bg-neutral-900/90 border border-white/10 rounded-xl overflow-hidden p-3 flex items-center gap-3 shadow-lg">
-                          <div class="w-14 sm:w-16 h-14 sm:h-16 rounded-lg overflow-hidden shrink-0 bg-neutral-800">
-                            <img src={post.img} alt={post.title} class="w-full h-full object-cover" />
-                          </div>
-                          <div class="space-y-1">
-                            <span class="text-[8px] font-bold uppercase tracking-wider text-neutral-400 block">
-                              {post.tag}
-                            </span>
-                            <h4 class="text-[11px] sm:text-xs font-semibold text-white leading-tight line-clamp-2">
-                              {post.title}
-                            </h4>
-                          </div>
-                        </div>
-                      ))}
-
-                      <!-- Floating Left Badge ("New Post / Content") -->
-                      <div class="hidden md:flex absolute -left-6 -bottom-5 bg-white text-black rounded-xl p-2.5 shadow-2xl border border-black/10 items-center gap-2.5 z-20 animate-fade-in">
-                        <div class="w-9 h-9 rounded-lg overflow-hidden shrink-0">
-                          <img src={card.floatingLeft.img} alt="Thumb" class="w-full h-full object-cover" />
-                        </div>
-                        <div class="pr-2">
-                          <span class="text-[8px] font-bold uppercase tracking-wider text-neutral-500 block">
-                            {card.floatingLeft.tag}
-                          </span>
-                          <span class="text-[11px] font-bold text-neutral-900 block leading-tight">
-                            {card.floatingLeft.title}
-                          </span>
-                          <span class="text-[9px] text-neutral-600 block">
-                            {card.floatingLeft.subtitle}
-                          </span>
-                        </div>
-                      </div>
-
-                      <!-- Floating Right Dropdown ("Layout Picker") -->
-                      <div class="hidden md:block absolute -right-6 -bottom-5 bg-white text-black rounded-xl p-3 shadow-2xl border border-black/10 z-20 min-w-[140px]">
-                        <span class="text-[8px] font-bold uppercase tracking-wider text-neutral-500 block pb-1 border-b border-neutral-100">
-                          {card.floatingRight.title}
-                        </span>
-                        <div class="pt-1.5 space-y-1 text-[10px]">
-                          {card.floatingRight.options.map((opt, oIdx) => (
-                            <div class={`flex items-center justify-between py-0.5 ${oIdx === card.floatingRight.selected ? "font-bold text-neutral-900" : "text-neutral-500"}`}>
-                              <span>{opt}</span>
-                              {oIdx === card.floatingRight.selected && <span>✓</span>}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Bottom Right Circular Arrow Button matching Screenshot 4 -->
+                <!-- Bottom Right Circular Arrow Button matching Squarespace -->
                 <div class="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 z-20">
-                  <button
+                  <a
+                    href={`#${card.id}`}
                     class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white text-black flex items-center justify-center shadow-xl hover:scale-105 transition-all cursor-pointer"
                     aria-label={`Learn more about ${card.title}`}
                   >
                     <span class="text-base sm:text-lg">→</span>
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -504,7 +225,7 @@ const cardsData = [
 
     if (!track || slides.length === 0 || !viewport) return;
 
-    // Start on "Blog" tab (index 0 in cardsData, matching screenshot 1, 3, 4)
+    // Start on first tab ("Services", index 0)
     let currentIndex = 0;
     const totalSlides = slides.length;
 
@@ -516,19 +237,18 @@ const cardsData = [
       if (animate) {
         gsap.to(track, {
           x: targetOffset,
-          duration: 0.75,
+          duration: 0.65,
           ease: "power3.out",
         });
       } else {
         gsap.set(track, { x: targetOffset });
       }
 
-      // Update card scale and opacity
+      // Update card scale, keeping 100% full opacity at all times (no white-wash/faded opacity against white background)
       slides.forEach((slide, i) => {
         const cardInner = slide.querySelector<HTMLElement>(".showcase-card-inner");
         const isCenter = i === currentIndex;
-        const scaleVal = isCenter ? 1 : 0.94;
-        const opacityVal = isCenter ? 1 : 0.55;
+        const scaleVal = isCenter ? 1 : 0.96;
 
         slide.style.zIndex = isCenter ? "20" : "10";
 
@@ -536,20 +256,20 @@ const cardsData = [
           if (animate) {
             gsap.to(cardInner, {
               scale: scaleVal,
-              opacity: opacityVal,
-              duration: 0.75,
+              opacity: 1,
+              duration: 0.65,
               ease: "power3.out",
             });
           } else {
             gsap.set(cardInner, {
               scale: scaleVal,
-              opacity: opacityVal,
+              opacity: 1,
             });
           }
         }
       });
 
-      // Update active tab pill
+      // Update active tab pill without shifting or scrolling the navbar out of center
       const activeCard = slides[currentIndex];
       const activeTabId = activeCard?.getAttribute("data-card-tab");
 
@@ -559,7 +279,6 @@ const cardsData = [
           pill.classList.add("bg-neutral-100", "text-black", "font-semibold", "shadow-xs");
           pill.classList.remove("text-neutral-500");
           pill.setAttribute("aria-selected", "true");
-          pill.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
         } else {
           pill.classList.remove("bg-neutral-100", "text-black", "font-semibold", "shadow-xs");
           pill.classList.add("text-neutral-500");
@@ -637,6 +356,7 @@ const cardsData = [
 
     window.addEventListener("resize", () => updateShowcasePosition(false));
 
+    // Initial position on load
     updateShowcasePosition(false);
   }
 

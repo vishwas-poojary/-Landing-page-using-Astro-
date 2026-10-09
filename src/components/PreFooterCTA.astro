@@ -7,35 +7,30 @@ const particleVideo = {
 
 <section
   id="pre-footer-cta"
-  class="relative min-h-[80vh] py-32 sm:py-44 bg-black text-white overflow-hidden flex flex-col items-center justify-center text-center select-none"
+  class="relative min-h-[85vh] sm:min-h-screen py-24 sm:py-36 bg-black text-white overflow-hidden flex flex-col items-center justify-center text-center select-none"
   aria-label="Start Free Trial CTA"
 >
-  <!-- Central Glowing Particulate Sphere Background matching Screenshot 2 -->
+  <!-- Central Glowing Particulate Sphere Background matching Squarespace original -->
   <div class="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none overflow-hidden z-0">
-    <!-- Looping Particle Dome Video -->
+    <!-- Looping Particle Dome Video matching Squarespace original -->
     <video
-      class="w-[720px] sm:w-[920px] lg:w-[1100px] h-[720px] sm:h-[920px] lg:h-[1100px] object-contain opacity-75 mix-blend-screen scale-110 sm:scale-125"
+      class="w-full h-full max-w-[1400px] max-h-[1080px] object-contain pointer-events-none brightness-90 contrast-105"
       autoplay
       loop
       muted
       playsinline
       preload="auto"
       poster={particleVideo.poster}
+      disablepictureinpicture
     >
       <source src={particleVideo.mp4} type="video/mp4" />
     </video>
-
-    <!-- Ambient glowing radial light behind sphere -->
-    <div class="absolute w-[450px] sm:w-[650px] h-[450px] sm:h-[650px] rounded-full bg-radial from-white/10 via-transparent to-transparent blur-3xl pointer-events-none"></div>
-
-    <!-- Soft Vignette & Fade to Black at Edges -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none"></div>
   </div>
 
-  <!-- Content Container matching Screenshot 2 -->
-  <div class="relative z-10 w-full max-w-4xl mx-auto px-6 sm:px-8 flex flex-col items-center justify-center">
+  <!-- Content Container matching original -->
+  <div class="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 flex flex-col items-center justify-center">
     <!-- Big Headline -->
-    <h2 class="font-sans text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-normal tracking-[-0.03em] leading-[1.04] text-white drop-shadow-2xl">
+    <h2 class="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-[76px] font-normal tracking-[-0.03em] leading-[1.04] text-white drop-shadow-2xl">
       Start your free website trial<br />today
     </h2>
 
